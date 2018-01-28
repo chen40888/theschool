@@ -2,9 +2,9 @@
 
 $GLOBALS['config'] = array(
 	'environment' => 'local',
-	'static_domain' => 'www.tipul.local',
-	'static_base_domain' => 'tipul.local',
-	'static_root' => 'G:/work/tipul/',
+	'static_domain' => 'www.pro.local',
+	'static_base_domain' => 'pro.local',
+	'static_root' => 'D:/work/pro/',
 	'is_error_reporting_on' => false,
 	'is_log_warnings' => false,
 
