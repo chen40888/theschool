@@ -1,0 +1,41 @@
+RewriteEngine On
+RewriteBase /
+
+# Prevent access to any file or folder that begings with a dot (like .git)
+RewriteRule ^([^/]+/)*\. http://%{HTTP_HOST}/$1 [R=301,L]
+
+RewriteCond %{REQUEST_URI} !\.(gif|jpg|jpeg|png|bmp|js|css|tpl|json)$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule (.*) /controllers/routing.controller.php/$1 [QSA,L]
+
+# On failure to find a resource - internaly redirect to failed_resource_handler:
+RewriteCond %{REQUEST_URI} \.(gif|jpg|jpeg|png|bmp|tpl|json|js|css)$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule (.*) /controllers/routing.controller.php/failed_resource_handler/$1 [QSA,L]
+
+##Enable gzip compression:
+<IfModule mod_deflate.c>
+	AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css text/javascript application/x-javascript application/javascript application/json
+</IfModule>
+
+######
+######
+## Enable ETags: Entity Tag = "a URL fingerprint" - a cache validation mechanism which is part of HTTP.
+## Apache assigns each version of a resource found at a URL a unique Etag. When the resource changes a new and different ETag is assigned.
+## Apache quickly compares the Etag version the browser sent with the one it has. Only if they are the same, Apache sends "content has not changed" response and the bowser uses it's cached version instead.
+## http://stackoverflow.com/questions/7543142/htaccess-cache-static-content-unless-modified
+## https://www.mnot.net/cache_docs/#CACHE-CONTROL
+## http://blog.httpwatch.com/2009/08/07/ajax-caching-two-important-facts/comment-page-1/
+FileETag MTime Size
+<IfModule mod_expires.c>
+	#Enable expirations
+	ExpiresActive On
+
+	# Cache all files for 2 weeks after access
+	ExpiresDefault A1209600
+
+	# Do not allow PHP scripts to be cached (support obsolete moderators)
+	<FilesMatch \.php$>
+		ExpiresActive Off
+	</FilesMatch>
+</IfModule>
