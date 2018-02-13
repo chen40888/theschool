@@ -1,8 +1,10 @@
 <?php
-class Home_Page {
+
+class Add_Course_page {
+
 	public static $allowed_roles = array('anonymous');
 
 	public function __construct() {
-		Template::set('content', 'עובד, יופי טופי');
+
 	}
 }

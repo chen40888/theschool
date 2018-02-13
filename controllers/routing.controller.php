@@ -17,7 +17,8 @@ class Routing_Controller {
 			Response::die_with_redirect('home', 'redirect invalid sub-domains');
 		}
 
-		if(Request::$is_page_view) new Page_Controller;
-		else new API_Controller;
+//		if(Request::$is_page_view)
+			new Page_Controller;
+//		else new API_Controller;
 	}
 }
