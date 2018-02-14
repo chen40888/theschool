@@ -10,11 +10,8 @@ class Inside_Page {
 		$all_data = $all_courses . $all_students;
 
 		echo $all_data;
-//		Log::w($body);
 
-//		die($body);
-
-//		Template::set($body);
+		Template::set('content' ,$all_data);
 	}
 
 	function _bring_all_courses() {
@@ -32,7 +29,7 @@ class Inside_Page {
 
 		$body= '';
 		foreach($students_list as $student) {
-			$body .= Template::get_partial('inside_students' ,$student);
+			$body .= Template::get_partial('students' ,$student);
 		}
 		return $body;
 	}

@@ -7,16 +7,24 @@ class Students_Inside_Course_Page {
 	public function __construct() {
 		$uri = $_SERVER['REQUEST_URI'];
 		$uri = explode('/',$uri);
-//		var_dump($uri);
 		$id = $uri['2'];
 
 		$one_course = Students_Inside_Course_Table::one_course($id);
-		var_dump($one_course);
+		$course = 	Template::get_partial('course',$one_course);
 
-		$all_students = Students_Inside_Course_Table::get_students_in_courses($id);
-		var_dump($all_students);
+		$all_students_id = Students_Inside_Course_Table::get_students_id_in_courses($id);
+
+		$all_students = '';
+		foreach($all_students_id as $student_id) {
+			$id = $student_id['student_id'];
+			$student = Students_Inside_Course_Table::get_students_in_courses($id);
+			$all_students .= 	Template::get_partial('students',$student);
+		}
+
+		$body = $course . $all_students;
 
 
+		Template::set('content',$body);
 
 	}
 }

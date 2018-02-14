@@ -108,7 +108,7 @@ label {
 	border-radius: 5px;
 }
 .warning_hide {
-	opacity: 0;
+	opacity: 1;
 }
 .warning {
 	display: block;

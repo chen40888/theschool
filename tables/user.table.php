@@ -12,6 +12,14 @@ class User_Table {
 		return DB::fetch_row($sql);
 	}
 
+	public static function get_user_by_cookie() {
+		if(!Cookie::get('user_id')) return false;
+
+			$user_id = Cookie::get('user_id');
+			$query = "SELECT * FROM users AS u WHERE u.id = $user_id";
+			return DB::fetch_row($query);
+	}
+
 	public static function get_user_params_by_token($token) {
 		if(!$token) return false;
 
