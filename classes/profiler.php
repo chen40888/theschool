@@ -24,7 +24,7 @@ class Profiler {
 		$now_memory = memory_get_peak_usage();
 		$total_memory = ($now_memory - self::$marks_array[$mark . '_start_memory']);
 
-		//Log::write($mark . ' time: ' . $total_time . ' | Memory: ' . self::_format_bytes($total_memory) . ' | URL: "' . self::$marks_array[url . '"');
+		Log::write($mark . ' time: ' . $total_time . ' | Memory: ' . self::_format_bytes($total_memory) . ' | URL: "' . self::$marks_array['url'] . '"');
 		return array('time' => $total_time, 'memory' => self::_format_bytes($total_memory));
 	}
 

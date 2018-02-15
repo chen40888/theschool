@@ -1,13 +1,21 @@
 <?php
 class Login_Command {
-	private $user;
+	private
+		$user;
+	private static
+		$num = 0;
 	public static $allowed_roles = array('anonymous');
 
 	public function __construct() {
 		$this->_set_user();
 
-		if(!$this->user) new Page_Controller(array('problem' => 'Incorrect mail, id or password'));
-		else $this->_on_regular_login();
+		if(!$this->user) {
+			if(self::$num == 0) {
+				self::$num++;
+				new Page_Controller(array('problem' => 'Incorrect mail, id or password'));
+			}
+		}
+		else { $this->_on_regular_login(); }
 	}
 
 	private function _set_user() {
