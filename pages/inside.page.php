@@ -1,15 +1,11 @@
 <?php
-
 class Inside_Page {
-
-	public static $allowed_roles = array('anonymous');
+	public static $allowed_roles = array('owner', 'teacher');
 
 	public function __construct() {
 		$all_courses = $this->_bring_all_courses();
 		$all_students = $this->_bring_all_students();
 		$all_data = $all_courses . $all_students;
-
-		echo $all_data;
 
 		Template::set('content' ,$all_data);
 	}

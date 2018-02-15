@@ -1,5 +1,5 @@
 <?php
-/*	
+/*
  *	Simple Profiler: log page load time and memory usage statistics
  *
  *	microtime(true) = current Unix timestamp with microseconds

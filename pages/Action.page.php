@@ -20,7 +20,7 @@ class Action_Page {
 		$file_name = $_FILES["file"]["name"];
 
 		Action_Table::insert_course($cours_name,$description,$file_name);
-		header("Location: inside");
+		//Response::die_with_redirect('inside', 'from the Action page');
 	}
 
 	function login_valid() {

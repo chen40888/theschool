@@ -1,25 +1,34 @@
 <?php
 class Page_Controller {
 	private
-		$page_name;
+		$page_name,
+		$template_params;
 
-	public function __construct() {
+	public function __construct($template_params = array()) {
 		$this->_set_page_name();
+		$this->_set_template_params($template_params);
 		$this->_authorize_page_request();
 		$this->_die_with_page();
 	}
 
 	private function _set_page_name() {
-		$this->page_name = Request::get('arg0', 'home');
+		$this->page_name = Request::get('arg0', 'login');
+	}
+
+	private function _set_template_params($template_params) {
+		$this->template_params = $template_params;
 	}
 
 	private function _authorize_page_request() {
-		if(!Authorization_Controller::authorize(User::$role, $this->page_name, 'page')) Response::die_with_redirect('home', 'Page_Controller->not_authorized');
+		//Log::w('$role: ' . User::$role);
+		if(!Authorization_Controller::authorize(User::$role, $this->page_name, 'page')) {
+			Response::die_with_redirect((User::$id ? 'inside' : 'login'), 'Page_Controller->not_authorized');
+		}
 	}
 
 	private function _die_with_page() {
 		new Request::$command_name;
-		$content = Template::get_page($this->page_name, array(), true);
+		$content = Template::get_page($this->page_name, $this->template_params, true);
 		$header = $this->_get_page_header_html();
 		$footer = $this->_get_page_footer_html();
 

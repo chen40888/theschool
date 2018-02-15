@@ -1,13 +1,9 @@
 <?php
-
 class Student_Details_Page {
-
-	public static $allowed_roles = array('anonymous');
+	public static $allowed_roles = array('owner', 'teacher');
 
 	public function __construct() {
-		$uri = $_SERVER['REQUEST_URI'];
-		$uri = explode('/',$uri);
-		$id = $uri['2'];
+		$id = Request::get('arg1');
 
 		$one_student = Student_Details_Table::one_student($id);
 		$student = Template::get_partial('students',$one_student);
@@ -22,7 +18,6 @@ class Student_Details_Page {
 		}
 
 		$body = $student . $all_courses;
-
 
 		Template::set('content',$body);
 

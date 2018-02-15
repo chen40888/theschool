@@ -1,5 +1,4 @@
 <?php
-
 class Action_Table {
 
 	public static function insert_course($name,$description,$image_name) {
@@ -8,11 +7,9 @@ class Action_Table {
 	}
 
 	public static function login_valid($mail_or_id, $pass) {
-//		$query = "SELECT * FROM users AS u WHERE u.email = '$mail_or_id' AND u.password = '$pass'"; // האור לא עובד
-		$query = "SELECT * FROM users AS u WHERE  u.password = '$pass' AND u.email = '$mail_or_id' OR u.person_id = '$mail_or_id'";
+		$query = "SELECT * FROM users AS u WHERE u.password = '$pass' AND (u.email = '$mail_or_id' OR u.id = '$mail_or_id')";
+
 		return DB::fetch_row($query);
-
-
 	}
 
 }

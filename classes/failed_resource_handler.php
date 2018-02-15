@@ -2,7 +2,7 @@
 class Failed_Resource_Handler {
 
 	public function __construct() {
-		Log::write('$uri: ' . Request::$uri . ' | $full_url: ' . conf('full_url'));
+		//Log::write('$uri: ' . Request::$uri . ' | $full_url: ' . conf('full_url'));
 		// $class = new ReflectionClass('Request'); $arr = $class->getStaticProperties(); //Log::w($arr, '$arr');
 
 		if(strpos(Request::$uri, '.') != false) $this->_handle_dot_request();

@@ -1,14 +1,9 @@
 <?php
-
 class Students_Inside_Course_Page {
-
-	public static $allowed_roles = array('anonymous');
+	public static $allowed_roles = array('owner', 'teacher');
 
 	public function __construct() {
-		$uri = $_SERVER['REQUEST_URI'];
-		$uri = explode('/',$uri);
-		$id = $uri['2'];
-
+		$id = Request::get('arg1');
 		$one_course = Students_Inside_Course_Table::one_course($id);
 		$course = 	Template::get_partial('course',$one_course);
 
@@ -23,8 +18,6 @@ class Students_Inside_Course_Page {
 
 		$body = $course . $all_students;
 
-
 		Template::set('content',$body);
-
 	}
 }

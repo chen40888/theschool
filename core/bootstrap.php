@@ -30,7 +30,7 @@ class Bootstrap {
 		new Request;
 		new Response;
 		new User;
-		new Authentication_Controller;
+		//new Authentication_Controller;
 
 		//Log::w($_POST, 'post');
 		Profiler::mark();

@@ -42,12 +42,9 @@ class Response {
 		$redirect_to_url = conf('base_url') . $page_name;
 		//Log::w('$redirect_to_url: "' . $redirect_to_url . '"' . ' | $reason: ' . $reason);
 
-		if(Request::$is_page_view) {
-			header('Location: ' . $redirect_to_url);
-			die();
-		} else {
-			Response::die_with_response('redirect_to_url', $redirect_to_url);
-		}
+		header('Location: ' . $redirect_to_url);
+		die();
+
 	}
 
 	public static function die_with_templated_page($page_name, $template_data) {

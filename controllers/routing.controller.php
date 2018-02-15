@@ -13,12 +13,11 @@ class Routing_Controller {
 
 	private function _init() {
 		//Log::w('$static_domain: ' . conf('static_domain') . ' | $uri: ' . Request::$uri);
-		if(Request::$is_page_view && !Request::$is_cron_or_cli && !serv('HTTP_HOST') || serv('HTTP_HOST') != conf('static_domain')) {
+		if(Request::$is_page_view && serv('HTTP_HOST') != conf('static_domain')) {
 			Response::die_with_redirect('home', 'redirect invalid sub-domains');
 		}
 
-//		if(Request::$is_page_view)
-			new Page_Controller;
-//		else new API_Controller;
+		if(strpos(Request::$uri, '.') != false) new Failed_Resource_Handler;
+		else new Page_Controller;
 	}
 }
