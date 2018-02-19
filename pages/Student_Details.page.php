@@ -8,14 +8,14 @@ class Student_Details_Page {
 		$one_student = Student_Details_Table::one_student($id);
 		$student = Template::get_partial('students',$one_student);
 
-		$student_courses = Student_Details_Table::get_courses_id($id);
+
+		$courses = Student_Details_Table::get_student_courses($id);
 
 		$all_courses = '';
-		foreach($student_courses as $course_id) {
-			$id = $course_id['cours_id'];
-			$course = Student_Details_Table::get_student_in_courses($id);
+		foreach($courses as $course) {
 			$all_courses .= Template::get_partial('course',$course);
 		}
+
 
 		$body = $student . $all_courses;
 

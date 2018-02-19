@@ -1,4 +1,4 @@
-<form method="post" action="Action" enctype="multipart/form-data">
+<form method="post" action="/add_course" enctype="multipart/form-data">
 	insert new cours:<br>
 	<input type="text" name="course_name">
 	<br>

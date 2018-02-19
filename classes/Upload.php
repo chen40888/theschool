@@ -6,13 +6,21 @@ class Upload {
 		try {
 			$this->_do_upload();
 		} catch(Exception $exception_object) {
-			Log::w($exception_object);
+//			Log::w($exception_object);
 //			echo $exception_object->getMessage();
 		}
 	}
 
 	private function _do_upload() {
-		$target_dir = ROOT . 'img/';
+		if(Request::get('course_name')) {
+			$target_dir = ROOT . 'img/courses/';
+		} elseif(Request::get('student_name')) {
+			$target_dir = ROOT . 'img/users/';
+		} else {
+			$target_dir = ROOT . 'img/';
+
+		}
+
 		$target_file = $target_dir . basename(Files::get('name', 'default'));
 		$uploadOk = 1;
 		$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
