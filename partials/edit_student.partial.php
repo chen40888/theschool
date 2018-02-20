@@ -1,5 +1,5 @@
 <form action="/edit_student" method="post">
-	<input hidden name="id" value="<?php echo $id?>" disabled>
+	<input hidden name="id" value="<?php echo $id?>">
 	<div id="add_student" class="form-group">
 		<label>ת"ז:</label>
 		<input type="number" name="id_card" min="2" class="form-control" value="<?php echo $id_card;?>" required placeholder="תעודת זהות">

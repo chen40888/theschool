@@ -1,6 +1,6 @@
 <?php
 
-class Inside_Table {
+class School_Table {
 
 	public static function get_all_with_table_name($table_name) {
 		$query = "SELECT * FROM $table_name";

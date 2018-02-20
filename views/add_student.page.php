@@ -2,11 +2,11 @@
 <form action="/add_student" method="post">
 	<div id="add_student" class="form-group">
 		<label>ת"ז:</label>
-			<input type="number" name="id_card" min="2" class="form-control" required placeholder="תעודת זהות">
+		<input type="number" name="id_card" min="2" class="form-control" required placeholder="תעודת זהות">
 	</div>
 	<div class="form-group">
 		<label>שם :</label>
-			<input type="text" name="student_name" class="form-control" required placeholder="name">
+		<input type="text" name="student_name" class="form-control" required placeholder="name">
 	</div>
 	<div class="form-group">
 		<label for="phone">טלפון :</label>
@@ -24,11 +24,11 @@
 	<div class="form-group">
 		<div class="col-md-6">
 
-		<div class="funkyradio">
-			<?php echo $courses?>
+			<div class="funkyradio">
+				<?php echo $courses?>
+			</div>
 		</div>
-		</div>
-	<label>
-		<input value="submit" name="add_student" type="submit" class="btn btn-primary">
-	</label>
+		<label>
+			<input value="submit" name="add_student" type="submit" class="btn btn-primary">
+		</label>
 </form>

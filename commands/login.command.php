@@ -27,7 +27,7 @@ class Login_Command {
 		User::$role = $this->user['role'];
 
 		$this->create_user_token();
-		Response::die_with_redirect('inside', 'regular login');
+		Response::die_with_redirect('school', 'regular login');
 	}
 
 	public static function create_user_token() {

@@ -162,7 +162,10 @@ img {
 }
 li {
 	width: 300px;
-	height: 300px;
+	/*height: 300px;*/
 	overflow: hidden;
 	display: inline-block;
+}
+.login header {
+	display: none;
 }

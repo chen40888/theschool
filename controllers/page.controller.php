@@ -22,7 +22,7 @@ class Page_Controller {
 	private function _authorize_page_request() {
 		//Log::w('$role: ' . User::$role);
 		if(!Authorization_Controller::authorize(User::$role, $this->page_name, 'page')) {
-			Response::die_with_redirect((User::$id ? 'inside' : 'login'), 'Page_Controller->not_authorized');
+			Response::die_with_redirect((User::$id ? 'school' : 'login'), 'Page_Controller->not_authorized');
 		}
 	}
 

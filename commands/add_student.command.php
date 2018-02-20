@@ -22,7 +22,7 @@ class Add_Student_Command {
 		$student_id = $this->bring_student_id($id_card);
 		$this->insert_to_students_courses($student_id,$courses);
 
-		Response::die_with_redirect('inside');
+		Response::die_with_redirect('school');
 	}
 
 	function bring_student_id($id_card) {

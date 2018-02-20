@@ -6,7 +6,7 @@ class Edit_Student_Table {
 	}
 	public static function update_student($name, $phone, $id_card, $email, $file_name, $id) {
 		$query = 	"UPDATE students SET  name = '$name', phone = '$phone', id_card = '$id_card', email = '$email', image = '$file_name'
- 		WHERE id = $id LIMIT 1";
+ 		WHERE id = $id";
 		DB::execute('UPDATE', $query);
 	}
 
