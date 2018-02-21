@@ -1,6 +1,6 @@
 <?php
 class Logout_Page {
-	public static $allowed_roles = array('owner', 'teacher' , 'sales');
+	public static $allowed_roles = array('owner', 'manager','sales');
 
 	public function __construct() {
 //		Token_Table::delete_token_of_user(User::$id);//אפשר למחוק את הtoken      		אפשר לבדוק אם יש לממבר id token ואם כן לעשות update

@@ -29,7 +29,11 @@
 							echo '<li><a href="/admin">admin</a></li>'; }?>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span>logout</a></li>
+						<li>
+							<img src="<?php echo 'img/users/' . User::$image; ?>">
+							<h3><?php echo User::$name . ' , ' . User::$role?></h3>
+							<a class="logout" href="/logout"><span class="glyphicon glyphicon-log-in"></span>logout</a>
+						</li>
 					</ul>
 				</div>
 			</div>

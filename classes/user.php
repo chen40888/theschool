@@ -5,6 +5,7 @@ class User {
 		$role,
 		$name,
 		$email,
+		$image,
 		$phone,
 		$id_card,
 		$token_date_created;
@@ -17,6 +18,7 @@ class User {
 		self::$id_card = ($user_array ? $user_array['person_id'] : 0);
 		self::$role = ($user_array ? $user_array['role'] : 'anonymous');
 		self::$name = ($user_array ? $user_array['name'] : 'anonymous');
+		self::$image = ($user_array ? $user_array['image'] : 'anonymous');
 		self::$token_date_created = ($user_array ? $user_array['token_date_created'] : 0);
 
 		//L o g::w($user_array, '$token: ' . Cookie::get('token') . ' | $user_array');

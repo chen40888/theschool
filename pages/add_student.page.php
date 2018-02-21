@@ -1,6 +1,6 @@
 <?php
 class Add_Student_Page {
-	public static $allowed_roles = array('owner', 'teacher');
+	public static $allowed_roles = array('owner', 'manager','sales');
 
 	public function __construct() {
 		$all_courses = $this->_bring_all_courses();

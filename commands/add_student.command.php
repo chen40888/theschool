@@ -1,7 +1,7 @@
 <?php
 class Add_Student_Command {
 
-	public static $allowed_roles = array('owner', 'teacher');
+	public static $allowed_roles = array('owner', 'manager','sales');
 
 	public function __construct() {
 		if(Request::get('add_student')){

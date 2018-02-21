@@ -1,6 +1,6 @@
 <?php
 class Student_Details_Page {
-	public static $allowed_roles = array('owner', 'teacher');
+	public static $allowed_roles = array('owner', 'manager','sales');
 
 	public function __construct() {
 		$id = Request::get('arg1');

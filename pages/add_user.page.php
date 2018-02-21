@@ -1,8 +1,10 @@
 <?php
 
-class Add_Course_page {
+class Add_User_Page {
 
 	public static $allowed_roles = array('owner', 'manager','sales');
 
+	public function __construct() {
 
+	}
 }

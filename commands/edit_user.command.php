@@ -1,25 +1,27 @@
 <?php
-class Edit_Student_Command {
+class Edit_User_Command {
 
 	public static $allowed_roles = array('owner', 'manager','sales');
 
 	public function __construct() {
-		if(Request::get('edit_student')){
+		if(Request::get('edit_user')){
 			$this->_do_upload();
 		}
 	}
 
 	private function _do_upload() {
 		include ROOT . 'classes/upload.php';
-		$name = Request::get('student_name');
+		$id = Request::get('id');
+		$name = Request::get('user_name');
 		$phone = Request::get('phone');
 		$id_card = Request::get('id_card');
+		$password = Request::get('password');
 		$email = Request::get('email');
-		$id = Request::get('id');
+		$role = Request::get('role');
 		$file = Request::get('file');
-//		Log::w('$file_name' . $file);
+//		echo $id_card;die();
 
-		Edit_Student_Table::update_student($name, $phone, $id_card, $email, $file, $id);
+		Edit_User_Table::update_user($name, $phone, $id_card, $password, $email, $role, $file ,$id);
 
 		Response::die_with_redirect('inside');
 	}
