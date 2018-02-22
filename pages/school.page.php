@@ -27,6 +27,7 @@ class School_Page {
 
 		$body= '';
 		foreach($students_list as $student) {
+			$student['image'] = conf('url.students') . $student['image'];
 			$body .= Template::get_partial('students' ,$student);
 		}
 		return $body;

@@ -11,8 +11,8 @@ class Add_Student_Page {
 		$courses_list = Add_Student_Table::get_all_with_table_name('courses');
 
 		$body= '';
-		foreach($courses_list as $cours) {
-			$body .= Template::get_partial('course_chekbox' ,$cours);
+		foreach($courses_list as $course) {
+			$body .= Template::get_partial('course_chekbox' ,$course);
 		}
 		return $body;
 	}

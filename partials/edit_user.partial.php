@@ -1,6 +1,6 @@
 <h2>הוספת משתמש חדש</h2>
 <form action="/edit_user" method="post">
-	<input hidden name="id" value="<?php echo $id?>">
+	<input name="id" value="<?php echo $id?>">
 	<div id="add_student" class="form-group">
 		<label>ת"ז:</label>
 		<input type="number" name="id_card" min="2" class="form-control" value="<?php echo $id_card;?>" required>
@@ -38,6 +38,8 @@
 		<label>העלת תמונה :</label>
 		<input type="file" required name="file">
 	</div>
+	<?php echo $error_message; ?>
+
 	<label>
 		<input value="submit" name="edit_user" type="submit" class="btn btn-primary">
 	</label>

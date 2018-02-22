@@ -1,4 +1,3 @@
-<form action="/edit_student/<?php echo $id?>" method="post" enctype="multipart/form-data" >
 	<input hidden name="id" value="<?php echo $id?>">
 	<div id="add_student" class="form-group">
 		<label>ת"ז:</label>
@@ -26,11 +25,3 @@
 		<input type="file" required="required" name="file" />
 	</div>
 
-	<?php echo $error_message; ?>
-
-	<div class="form-group">
-		<label>
-			<input value="submit" name="edit_student" type="submit" class="btn btn-primary">
-		</label>
-	</div>
-</form>

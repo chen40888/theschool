@@ -10,4 +10,19 @@ class Edit_Student_Table {
 		DB::execute('UPDATE', $query);
 	}
 
+	public static function _bring_student_courses($id) {
+		$query = "SELECT * FROM students_courses WHERE student_id = $id";
+		return DB::fetch_all($query);
+	}
+
+	public static function _update_or_insert($student_id,$course_id) {
+		$query = "IF EXISTS (SELECT * FROM students_courses WHERE student_id = $student_id)
+	    UPDATE students_courses SET (cours_id = $course_id) WHERE student_id= $student_id
+		 ELSE
+	    INSERT INTO students_courses VALUES (student_id = $student_id, cours_id = $course_id)";
+
+		DB::execute('INSERT',$query);
+	}
+
+
 }

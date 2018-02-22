@@ -16,6 +16,8 @@ class Add_Student_Command {
 		$id_card = Request::get('id_card');
 		$email = Request::get('email');
 		$courses = Request::get('courses');
+		var_dump($courses);
+		die();
 		$file_name = $_FILES["file"]["name"];
 
 		Add_Student_Table::insert_student($name, $phone, $id_card, $email, $file_name);

@@ -16,8 +16,8 @@ $GLOBALS['config'] = array(
 
 	'DB' => array(
 		'host' => 'localhost',
-		'user' => 'jon_b',
-		'pass' => 'jon_b',
+		'user' => 'root',
+		'pass' => '1234',
 		'name' => 'jon_b',
 		'port' => '3306',
 		'charset' => 'utf8'

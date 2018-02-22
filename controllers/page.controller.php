@@ -5,6 +5,8 @@ class Page_Controller {
 		$template_params;
 
 	public function __construct($template_params = array()) {
+//		Request::$command_name = str_replace('Command', 'Page', Request::$command_name);
+
 		$this->_set_page_name();
 		$this->_set_template_params($template_params);
 		$this->_authorize_page_request();

@@ -9,7 +9,7 @@ class Upload {
 
 	private function _do_upload() {
 		self::$is_init = true;
-		//Log::w($_FILES);
+		Log::w($_FILES);
 
 		if(Request::get('course_name')) $target_dir = conf('path.courses');
 		else if(Request::get('student_name')) $target_dir = conf('path.students');
@@ -27,7 +27,10 @@ class Upload {
 			throw new Custom_Exception(Upload_Exception::$bad_file_type_only_allow_jpg_jpeg_png_gif);
 		}
 
-		if(move_uploaded_file(Files::get('tmp_name'), $target_file)) new Page_Controller;
+		if(move_uploaded_file(Files::get('tmp_name'), $target_file)){
+			self::$is_upload_success = TRUE;
+			Request::$command_name = str_replace('Command', 'Page', Request::$command_name);
+		}
 		//Response::die_with_response(array('message' => 'The file '. basename(Files::get('name')). ' has been uploaded.'));
 		else throw new Custom_Exception(Upload_Exception::$general_upload_error);
 	}
