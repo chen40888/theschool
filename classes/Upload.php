@@ -1,67 +1,35 @@
 <?php
-
-new Upload;
 class Upload {
+	private static $is_init;
+	public static $is_upload_success;
+
 	public function __construct() {
-		try {
-			$this->_do_upload();
-		} catch(Exception $exception_object) {
-//			Log::w($exception_object);
-//			echo $exception_object->getMessage();
-		}
+		if(!self::$is_init) $this->_do_upload();
 	}
 
 	private function _do_upload() {
-		if(Request::get('course_name')) {
-			$target_dir = ROOT . 'img/courses/';
-		} elseif(Request::get('student_name')) {
-			$target_dir = ROOT . 'img/users/';
-		} else {
-			$target_dir = ROOT . 'img/';
+		self::$is_init = true;
+		//Log::w($_FILES);
 
-		}
+		if(Request::get('course_name')) $target_dir = conf('path.courses');
+		else if(Request::get('student_name')) $target_dir = conf('path.students');
+		else $target_dir = conf('path.users');
 
 		$target_file = $target_dir . basename(Files::get('name', 'default'));
-		$uploadOk = 1;
 		$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+		//Log::w('$tmp_name: ' . Files::get('tmp_name'));
 
-		Log::w('$tmp_name: ' . Files::get('tmp_name'));
-
-
-		// Check if image file is a actual image or fake image
 		$check = getimagesize(Files::get('tmp_name'));
-		if($check === false) {
-			throw new Exception('File is not an image');
-			$uploadOk = 0;
+		if(!$check) throw new Custom_Exception(Upload_Exception::$file_is_not_an_image);
+		if(file_exists($target_file)) throw new Custom_Exception(Upload_Exception::$file_already_exists);
+		if(Files::get('size') > 500000) throw new Custom_Exception(Upload_Exception::$file_too_large);
+		if($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg' && $imageFileType != 'gif') {
+			throw new Custom_Exception(Upload_Exception::$bad_file_type_only_allow_jpg_jpeg_png_gif);
 		}
 
-		// Check if file already exists
-		if (file_exists($target_file)) {
-			throw new Exception('Sorry, file already exists.');
-			$uploadOk = 0;
-		}
-		// Check file size
-		if (Files::get('size') > 500000) {
-			throw new Exception('Sorry, your file is too large');
-			$uploadOk = 0;
-		}
-		// Allow certain file formats
-		if($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg'
-			&& $imageFileType != 'gif' ) {
-			throw new Exception('Sorry, only JPG, JPEG, PNG & GIF files are allowed.');
-			$uploadOk = 0;
-		}
-		// Check if $uploadOk is set to 0 by an error
-		if ($uploadOk == 0) {
-			throw new Exception('Sorry, your file was not uploaded.');
-			// if everything is ok, try to upload file
-		} else {
-			if (move_uploaded_file(Files::get('tmp_name'), $target_file)) {
-				echo 'The file '. basename(Files::get('name')). ' has been uploaded.';
-			} else {
-				throw new Exception('Sorry, your file was eror not uploaded.');
-			}
-		}
+		if(move_uploaded_file(Files::get('tmp_name'), $target_file)) new Page_Controller;
+		//Response::die_with_response(array('message' => 'The file '. basename(Files::get('name')). ' has been uploaded.'));
+		else throw new Custom_Exception(Upload_Exception::$general_upload_error);
 	}
 }
 

@@ -15,8 +15,9 @@ class School_Page {
 		$courses_list = School_Table::get_all_with_table_name('courses');
 
 		$body= '';
-		foreach($courses_list as $cours) {
-			$body .= Template::get_partial('inside' ,$cours);
+		foreach($courses_list as $course) {
+			$course['image'] = '/img/courses/' . $course['image'];
+			$body .= Template::get_partial('inside' ,$course);
 		}
 		return $body;
 	}

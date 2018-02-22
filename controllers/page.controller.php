@@ -16,6 +16,7 @@ class Page_Controller {
 	}
 
 	private function _set_template_params($template_params) {
+		Template::set($template_params);
 		$this->template_params = $template_params;
 	}
 
@@ -37,6 +38,7 @@ class Page_Controller {
 
 	private function _get_page_header_html() {
 		return Template::get_partial('header', array(
+			'avatar' => conf('url.users') . User::$image,
 			'page_name' => $this->page_name,
 			'title' => ucwords(str_replace('_', ' ', $this->page_name)),
 			'css_tags_html' => $this->_get_html_tags_by_type('css')

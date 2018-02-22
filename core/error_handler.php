@@ -27,10 +27,9 @@ class Error_Handler {
 	}
 
 	public static function run_on_custom_exception($error_code, $error_description, $class_name = 'Custom Exception') {
-		Response::die_with_error(array(
-			'error' => true,
-			'error_code' => $error_code,
-			'error_description' => $class_name . '::' . $error_description
+		Request::$command_name = str_replace('Command', 'Page', Request::$command_name);
+		new Page_Controller(array(
+			'error_message' => '<div class="error_message">' . $class_name . '::' . $error_description . '</div>'
 		));
 	}
 

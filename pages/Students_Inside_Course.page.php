@@ -5,13 +5,16 @@ class Students_Inside_Course_Page {
 	public function __construct() {
 		$id = Request::get('arg1');
 		$one_course = Students_Inside_Course_Table::one_course($id);
-		$course = 	Template::get_partial('course',$one_course);
+
+		$one_course['image'] = conf('url.courses') . $one_course['image'];
+		$course = 	Template::get_partial('course', $one_course);
 
 		$students = Students_Inside_Course_Table::get_students_in_courses($id);
 
 		$all_students = '';
 		foreach($students as $student) {
-			$all_students .= 	Template::get_partial('students',$student);
+			$student['image'] = conf('url.students') . $student['image'];
+			$all_students .= 	Template::get_partial('students', $student);
 		}
 
 

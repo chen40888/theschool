@@ -10,7 +10,8 @@ class Edit_User_Command {
 	}
 
 	private function _do_upload() {
-		include ROOT . 'classes/upload.php';
+		new Upload;
+
 		$id = Request::get('id');
 		$name = Request::get('user_name');
 		$phone = Request::get('phone');
@@ -19,10 +20,7 @@ class Edit_User_Command {
 		$email = Request::get('email');
 		$role = Request::get('role');
 		$file = Request::get('file');
-//		echo $id_card;die();
 
 		Edit_User_Table::update_user($name, $phone, $id_card, $password, $email, $role, $file ,$id);
-
-		Response::die_with_redirect('inside');
 	}
 }

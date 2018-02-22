@@ -1,9 +1,9 @@
 <?php
 return array(
 	'css' => array(
+		'bootstrap.min',
 		'styles',
 		'funkradio',
-		'bootstrap.min'
 	),
 	'js' => array(
 		'helpers',

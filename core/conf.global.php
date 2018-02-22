@@ -38,7 +38,10 @@ set_conf(array(
 		'css' => conf('base_url') . 'public/css/',
 		'js' => conf('base_url') . 'public/js/',
 		'images' => conf('base_url') . 'public/images/',
-		'full' => conf('base_http') . conf('host') . conf('uri') . conf('query')
+		'full' => conf('base_http') . conf('host') . conf('uri') . conf('query'),
+		'courses' => conf('base_url') . 'public/images/courses/',
+		'users' => conf('base_url') . 'public/images/users/',
+		'students' => conf('base_url') . 'public/images/students/'
 	),
 
 	'path' => array(
@@ -49,9 +52,9 @@ set_conf(array(
 		'lib_js' => ROOT . 'app/js/dev/',
 		'page' => ROOT . 'views/',
 		'partial' => ROOT . 'partials/',
-		'upload_folder' => ROOT . 'upload_folder/',
-		'excel_reader' => ROOT . 'libraries/' . 'spreadsheet_reader/php-excel-reader/excel_reader2.php',
-		'spreadsheet_reader_class' => ROOT . 'libraries/spreadsheet_reader/SpreadsheetReader.php'
+		'courses' => ROOT . 'public/images/courses/',
+		'users' => ROOT . 'public/images/users/',
+		'students' => ROOT . 'public/images/students/'
 	),
 
 	'date' => array(

@@ -172,7 +172,7 @@ li {
 .nav img {
 	width: 100px;
 	height: 100px;
-	display: inline;
+	float: right;
 }
 .nav h3 {
 	display: inline;
@@ -180,6 +180,11 @@ li {
 	color: #FFFFFF;
 }
 .nav .logout {
-	display: inline;
-	max-width: 0 40px 0 0;
+	float: left;
+	margin: 0 0 0 15px;
+}
+.error_message {
+	color: red;
+	padding: 15px 0;
+	font: 25px/30px 'Open Sans', sans-serif;
 }

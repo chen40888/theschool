@@ -5,7 +5,9 @@ class Edit_Student_Page {
 	public function __construct() {
 		$id = Request::get('arg1');
 		$student = Edit_Student_Table::bring_student_to_update($id);
-		$update_form = Template::get_partial('edit_student',$student);
-		Template::set('content',$update_form);
+		$student['image'] = conf('url.students') . $student['image'];
+
+		$update_form = Template::get_partial('edit_student', $student);
+		Template::set('content', $update_form);
 	}
 }

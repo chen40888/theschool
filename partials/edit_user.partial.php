@@ -31,6 +31,10 @@
 		</label>
 	</div>
 	<div class="form-group">
+		<label>תמונת המשתמש :</label>
+		<img src="<?php echo $image; ?>" />
+	</div>
+	<div class="form-group">
 		<label>העלת תמונה :</label>
 		<input type="file" required name="file">
 	</div>

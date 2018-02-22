@@ -1,4 +1,4 @@
-<form action="/edit_student" method="post">
+<form action="/edit_student/<?php echo $id?>" method="post" enctype="multipart/form-data" >
 	<input hidden name="id" value="<?php echo $id?>">
 	<div id="add_student" class="form-group">
 		<label>ת"ז:</label>
@@ -16,11 +16,18 @@
 		<label>Email address</label>
 		<input type="email" name="email" class="form-control" required value="<?php echo $email;?>">
 	</div>
+	<div class="form-group">
+		<label>תמונת המשתמש :</label>
+		<img src="<?php echo $image; ?>" />
+	</div>
 
 	<div class="form-group">
 		<label>העלת תמונה :</label>
-		<input type="file" placeholder="<?php echo $image; ?>" required name="file">
+		<input type="file" required="required" name="file" />
 	</div>
+
+	<?php echo $error_message; ?>
+
 	<div class="form-group">
 		<label>
 			<input value="submit" name="edit_student" type="submit" class="btn btn-primary">
