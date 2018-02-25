@@ -13,6 +13,7 @@ class Student_Details_Page {
 
 		$all_courses = '';
 		foreach($courses as $course) {
+			$course['image'] = '/img/courses/' . $course['image'];
 			$all_courses .= Template::get_partial('course', $course);
 		}
 

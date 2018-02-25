@@ -1,10 +1,10 @@
 <?php
-class Edit_User_Command {
+class Edit_Course_Command {
 
 	public static $allowed_roles = array('owner', 'manager','sales');
 
 	public function __construct() {
-		if(Request::get('edit_user')) $this->_do_upload();
+		if(Request::get('edit_course')) $this->_do_upload();
 	}
 
 	private function _do_upload() {
@@ -16,17 +16,12 @@ class Edit_User_Command {
 
 	public function _on_upload_success() {
 		$id = Request::get('id');
-		$name = Request::get('user_name');
-		$phone = Request::get('phone');
-		$id_card = Request::get('id_card');
-		$password = Request::get('password');
-		$email = Request::get('email');
-		$role = Request::get('role');
+		$name = Request::get('course_name');
+		$description = Request::get('description');
 		$file = Files::get('name');
 		log::w(Request::all());
 
-		Edit_User_Table::update_user($name, $phone, $id_card, $password, $email, $role, $file ,$id);
-//		Request::$command_name = str_replace('Command', 'Page', Request::$command_name);
+		Edit_Course_Table::_update_course($name, $description, $file ,$id);
 		new Page_Controller;
 	}
 }

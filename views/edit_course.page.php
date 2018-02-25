@@ -1,7 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: chen
- * Date: 25/02/2018
- * Time: 07:59
- */
+<?php echo $content; ?>
+<a href="/delete_course/<?php echo Request::get('arg1');?>"><button class="btn btn-warrning">delete course</button></a>
+
