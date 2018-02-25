@@ -22,7 +22,7 @@ class Edit_User_Command {
 		$role = Request::get('role');
 		$file = Files::get('name');
 
-		Edit_User_Table::update_user($name, $phone, $id_card, $password, $email, $role, $file ,$id);
+		Users_Table::update_user($name, $phone, $id_card, $password, $email, $role, $file ,$id);
 	}
 	private function _set_page_response() {
 		new Page_Controller(true, array(

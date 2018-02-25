@@ -12,7 +12,7 @@ class Edit_Student_Page {
 	}
 
 	function _get_student_content($id) {
-		$student = Edit_Student_Table::bring_student_to_update($id);
+		$student = Students_Table::bring_student_to_update($id);
 		$student['image'] = conf('url.students') . $student['image'];
 
 		$update_form = Template::get_partial('edit_student', $student);
@@ -20,7 +20,7 @@ class Edit_Student_Page {
 	}
 
 	function _bring_all_courses() {
-		$courses_list = Students_Table::get_all_with_table_name('courses');
+		$courses_list = Courses_Table::get_all();
 
 		$body= '';
 		foreach($courses_list as $course) {

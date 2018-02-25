@@ -6,7 +6,7 @@ class Edit_Course_Page {
 
 	public function __construct() {
 		$id = Request::get('arg1');
-		$course = Edit_Course_Table::_bring_course($id);
+		$course = Courses_Table::_bring_course($id);
 		$course['image'] = conf('url.courses') . $course['image'];
 
 		$course_inside_form = Template::get_partial('edit_course',$course);

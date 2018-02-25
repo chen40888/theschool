@@ -21,7 +21,7 @@ class Edit_Student_Command {
 		$courses = Request::get('courses');
 		$file_name = Files::get('name');
 
-		Edit_Student_Table::update_student($name, $phone, $id_card, $email, $file_name, $student_id);
+		Students_Table::update_student($name, $phone, $id_card, $email, $file_name, $student_id);
 		$this->_update_student_courses($student_id, $courses);
 	}
 
@@ -29,7 +29,7 @@ class Edit_Student_Command {
 		Students_Courses_Table::remove_student_from_courses($student_id);
 
 		foreach($courses_array as $course_id){
-			Students_Table::insert_into_courses($student_id, $course_id);
+			Students_Courses_Table::insert_into_courses($student_id, $course_id);
 		}
 	}
 

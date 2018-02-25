@@ -15,9 +15,9 @@ class Admin_Page{
 
 	public function bring_all_users() {
 		if(User::$role == 'owner') {
-		$users_array = Admin_Table::get_all_users();
+		$users_array = Users_Table::get_all_users();
 		} else {
-			$users_array = Admin_Table::get_manager_and_sales();
+			$users_array = Users_Table::get_manager_and_sales();
 		}
 		$this->count = count($users_array);
 

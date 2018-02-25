@@ -20,7 +20,6 @@ class Add_User_Command {
 		$name = Request::get('user_name');
 		$id_card = Request::get('id_card');
 		$password = Request::get('password');
-//		Log::w(Request::all());
 
 		Users_Table::insert_user($name, $phone, $id_card, $password, $email, $role, $file);
 	}

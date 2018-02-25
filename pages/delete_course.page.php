@@ -4,7 +4,7 @@ class Delete_Course_Page {
 
 	public function __construct() {
 		$id = Request::get('arg1');
-		Delete_Course_Table::delete_course($id);
+		Courses_Table::delete_course_with_students_inside($id);
 		Response::die_with_redirect('school', 'deleted a student');
 	}
 }

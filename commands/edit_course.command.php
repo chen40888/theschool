@@ -20,7 +20,7 @@ class Edit_Course_Command {
 		$file = Files::get('name');
 //		log::w(Request::all());
 
-		Edit_Course_Table::_update_course($name, $description, $file ,$id);
+		Courses_Table::_update_course($name, $description, $file ,$id);
 	}
 	private function _set_page_response() {
 		new Page_Controller(true, array(

@@ -12,7 +12,7 @@ class School_Page {
 	}
 
 	function _bring_all_courses() {
-		$courses_list = School_Table::get_all_with_table_name('courses');
+		$courses_list = Courses_Table::get_all();
 
 		$body= '';
 		foreach($courses_list as $course) {
@@ -23,7 +23,7 @@ class School_Page {
 	}
 
 	function _bring_all_students() {
-		$students_list = School_Table::get_all_with_table_name('students');
+		$students_list = Students_Table::get_all();
 
 		$body= '';
 		foreach($students_list as $student) {
