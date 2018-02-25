@@ -3,20 +3,31 @@ class Add_User_Command {
 	public static $allowed_roles = array('owner', 'manager','sales');
 
 	public function __construct() {
-		if(Request::get('add_user')) $this->_do_upload();
+		$this->_do_upload();
+		$this->_on_upload_success();
+		$this->_set_page_response();
 	}
 
 	private function _do_upload() {
-		include ROOT . 'classes/upload.php';
+		new Upload;
+	}
 
-		$name = Request::get('user_name');
+	private function _on_upload_success() {
+		$file = Files::get('name');
+		$role = Request::get('role');
 		$phone = Request::get('phone');
+		$email = Request::get('email');
+		$name = Request::get('user_name');
 		$id_card = Request::get('id_card');
 		$password = Request::get('password');
-		$email = Request::get('email');
-		$role = Request::get('role');
-		$file = Request::get('file');
+//		Log::w(Request::all());
 
-		Add_User_Table::insert_user($name, $phone, $id_card, $password, $email, $role, $file);
+		Users_Table::insert_user($name, $phone, $id_card, $password, $email, $role, $file);
+	}
+
+	private function _set_page_response() {
+		new Page_Controller(true, array(
+			'message' => '<div class="success_message">המשתמש הוסף בהצלחה</div>'
+		));
 	}
 }

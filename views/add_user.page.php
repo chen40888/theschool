@@ -1,5 +1,5 @@
 <h2>הוספת משתמש חדש</h2>
-<form action="/add_user" method="post">
+<form action="/add_user" method="post" enctype="multipart/form-data">
 	<div id="add_student" class="form-group">
 		<label>ת"ז:</label>
 		<input type="number" name="id_card" min="2" class="form-control" required placeholder="תעודת זהות">
@@ -33,6 +33,7 @@
 		<label>העלת תמונה :</label>
 		<input type="file" required name="file">
 	</div>
+	<?php echo $message; ?>
 		<label>
 			<input value="submit" name="add_user" type="submit" class="btn btn-primary">
 		</label>

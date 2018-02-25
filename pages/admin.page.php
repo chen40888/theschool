@@ -20,9 +20,11 @@ class Admin_Page{
 			$users_array = Admin_Table::get_manager_and_sales();
 		}
 		$this->count = count($users_array);
+
 		$body = '';
 		foreach($users_array as $user) {
-		$body .= Template::get_partial('user', $user);
+			$user['image'] = conf('url.users') . $user['image'];
+			$body .= Template::get_partial('user', $user);
 		}
 		return $body;
 	}

@@ -1,5 +1,5 @@
 <h2>הוספת משתמש חדש</h2>
-<form action="/edit_user" method="post">
+<form action="/edit_user" method="post" enctype="multipart/form-data">
 	<input name="id" value="<?php echo $id?>">
 	<div id="add_student" class="form-group">
 		<label>ת"ז:</label>

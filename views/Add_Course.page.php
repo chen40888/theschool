@@ -5,7 +5,7 @@
 	<textarea name="description" rows="4" cols="50"></textarea>
 
 	<input type="file" name="file">
-	<?php echo $error_message; ?>
+	<?php echo $message; ?>
 
 
 	<input type="submit" name="insert_course" value="insert">

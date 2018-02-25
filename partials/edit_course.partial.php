@@ -17,7 +17,7 @@
 		<label>העלת תמונה :</label>
 		<input type="file" required name="file">
 	</div>
-	<?php echo $error_message; ?>
+	<?php echo $message; ?>
 
 	<label>
 		<input value="submit" name="edit_course" type="submit" class="btn btn-primary">
