@@ -1,5 +1,5 @@
 <h2>הוספת משתמש חדש</h2>
-<form action="/add_student" method="post">
+<form action="/add_student" method="post" enctype="multipart/form-data">
 	<div id="add_student" class="form-group">
 		<label>ת"ז:</label>
 		<input type="number" name="id_card" min="2" class="form-control" required placeholder="תעודת זהות">
@@ -19,16 +19,19 @@
 
 	<div class="form-group">
 		<label>העלת תמונה :</label>
-		<input type="file" required name="file">
+		<input type="file" required="required" name="file" />
 	</div>
 	<div class="form-group">
 		<div class="col-md-6">
-
 			<div class="funkyradio">
 				<?php echo $courses?>
 			</div>
 		</div>
+	</div>
+	<?php echo $message; ?>
+	<div class="form-group">
 		<label>
 			<input value="submit" name="add_student" type="submit" class="btn btn-primary">
 		</label>
+	</div>
 </form>

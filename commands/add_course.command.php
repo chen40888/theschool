@@ -17,7 +17,8 @@ class Add_Course_Command {
 		$name = Request::get('course_name');
 		$description = Request::get('description');
 		$file_name = Files::get('name');
-			Log::w('file name' . $file_name);
+
+		Log::w('file name' . $file_name);
 		Add_Course_table::insert_course($name,$description, $file_name);
 	}
 }

@@ -162,7 +162,6 @@ img {
 }
 li {
 	width: 300px;
-	/*height: 300px;*/
 	overflow: hidden;
 	display: inline-block;
 }
@@ -186,5 +185,10 @@ li {
 .error_message {
 	color: red;
 	padding: 15px 0;
+	font: 25px/30px 'Open Sans', sans-serif;
+}
+.success_message {
+	padding: 15px 0;
+	color: lightgreen;
 	font: 25px/30px 'Open Sans', sans-serif;
 }

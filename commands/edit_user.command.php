@@ -1,6 +1,5 @@
 <?php
 class Edit_User_Command {
-
 	public static $allowed_roles = array('owner', 'manager','sales');
 
 	public function __construct() {
@@ -23,10 +22,11 @@ class Edit_User_Command {
 		$email = Request::get('email');
 		$role = Request::get('role');
 		$file = Files::get('name');
+
 		log::w(Request::all());
 
 		Edit_User_Table::update_user($name, $phone, $id_card, $password, $email, $role, $file ,$id);
-//		Request::$command_name = str_replace('Command', 'Page', Request::$command_name);
-		new Page_Controller;
+
+		new Page_Controller(true);
 	}
 }

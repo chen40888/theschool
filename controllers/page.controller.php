@@ -4,10 +4,9 @@ class Page_Controller {
 		$page_name,
 		$template_params;
 
-	public function __construct($template_params = array()) {
-//		Request::$command_name = str_replace('Command', 'Page', Request::$command_name);
-
+	public function __construct($is_update_command = false, $template_params = array()) {
 		$this->_set_page_name();
+		$this->_update_command_name($is_update_command);
 		$this->_set_template_params($template_params);
 		$this->_authorize_page_request();
 		$this->_die_with_page();
@@ -15,6 +14,12 @@ class Page_Controller {
 
 	private function _set_page_name() {
 		$this->page_name = Request::get('arg0', 'login');
+		//Log::w('$page_name: ' . $this->page_name);
+	}
+
+	private function _update_command_name($is_update_command) {
+		if($is_update_command) Request::$command_name = str_replace('Command', 'Page', Request::$command_name);
+		//Log::w('$command_name: ' . Request::$command_name);
 	}
 
 	private function _set_template_params($template_params) {

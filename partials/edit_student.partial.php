@@ -22,6 +22,6 @@
 
 	<div class="form-group">
 		<label>העלת תמונה :</label>
-		<input type="file" required="required" name="file" />
+		<input type="file" name="file" />
 	</div>
 

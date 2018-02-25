@@ -5,15 +5,17 @@ class Add_Student_Page {
 	public function __construct() {
 		$all_courses = $this->_bring_all_courses();
 
-		Template::set('courses',$all_courses);
+		Template::set('courses', $all_courses);
 	}
-	function _bring_all_courses() {
-		$courses_list = Add_Student_Table::get_all_with_table_name('courses');
 
-		$body= '';
+	function _bring_all_courses() {
+		$courses_list = Students_Table::get_all_with_table_name('courses');
+
+		$body = '';
 		foreach($courses_list as $course) {
 			$body .= Template::get_partial('course_chekbox' ,$course);
 		}
+
 		return $body;
 	}
 

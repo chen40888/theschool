@@ -4,14 +4,14 @@ class Edit_Student_Page {
 
 	public function __construct() {
 		$id = Request::get('arg1');
-		$student =$this->_bring_student($id);
+		$content =$this->_get_student_content($id);
 		$courses = $this->_bring_all_courses();
 
-		Template::set('content', $student);
+		Template::set('content', $content);
 		Template::set('courses', $courses);
 	}
 
-	function _bring_student($id) {
+	function _get_student_content($id) {
 		$student = Edit_Student_Table::bring_student_to_update($id);
 		$student['image'] = conf('url.students') . $student['image'];
 
@@ -20,7 +20,7 @@ class Edit_Student_Page {
 	}
 
 	function _bring_all_courses() {
-		$courses_list = Add_Student_Table::get_all_with_table_name('courses');
+		$courses_list = Students_Table::get_all_with_table_name('courses');
 
 		$body= '';
 		foreach($courses_list as $course) {

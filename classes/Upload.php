@@ -1,15 +1,10 @@
 <?php
 class Upload {
-	private static $is_init;
 	public static $is_upload_success;
 
 	public function __construct() {
-		if(!self::$is_init) $this->_do_upload();
-	}
-
-	private function _do_upload() {
-		self::$is_init = true;
-		Log::w($_FILES);
+		//Log::w($_FILES, '$_FILES');
+		$this->_validate_php_file_upload();
 
 		if(Request::get('course_name')) $target_dir = conf('path.courses');
 		else if(Request::get('student_name')) $target_dir = conf('path.students');
@@ -27,12 +22,18 @@ class Upload {
 			throw new Custom_Exception(Upload_Exception::$bad_file_type_only_allow_jpg_jpeg_png_gif);
 		}
 
-		if(move_uploaded_file(Files::get('tmp_name'), $target_file)){
-			self::$is_upload_success = TRUE;
-			Request::$command_name = str_replace('Command', 'Page', Request::$command_name);
-		}
-		//Response::die_with_response(array('message' => 'The file '. basename(Files::get('name')). ' has been uploaded.'));
-		else throw new Custom_Exception(Upload_Exception::$general_upload_error);
+		$is_upload_success = move_uploaded_file(Files::get('tmp_name'), $target_file);
+		if(!$is_upload_success) throw new Custom_Exception(Upload_Exception::$general_upload_error);
+	}
+
+	private function _validate_php_file_upload() {
+		//L o g::w($_FILES['file'], '$_FILES[file]');
+		if(Files::get('error') === 0) return;
+		else if(Files::get('error') == 1) throw new Custom_Exception(Upload_Exception::$apache__invalid_file_size_too_big);
+		else if(Files::get('error') == 4) throw new Custom_Exception(Upload_Exception::$apache__no_file_was_uploaded);
+		else if(Files::get('error') == 6) throw new Custom_Exception(Upload_Exception::$apache__error_accessing_temp_file);
+		else if(Files::get('error') == 7) throw new Custom_Exception(Upload_Exception::$apache__failed_to_open_output_stream);
+		else if(Files::get('error') == 8) throw new Custom_Exception(Upload_Exception::$apache__a_php_extension_stopped_the_file_upload);
 	}
 }
 
