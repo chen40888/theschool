@@ -8,7 +8,7 @@ class Student_Details_Page {
 		$one_student = Students_Table::one_student($id);
 		$one_student['image'] = conf('url.students') . $one_student['image'];
 
-		$student = Template::get_partial('students', $one_student);
+		$student = Template::get_partial('student_details', $one_student);
 		$courses = Students_Courses_Table::get_student_courses($id);
 
 		$all_courses = '';

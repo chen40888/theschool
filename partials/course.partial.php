@@ -1,4 +1,4 @@
-<div class="course">
+<div class="course col-sm-6">
 	<img src="<?php echo $image;?>">
 	<p><?php echo $id;?></p>
 	<p><?php echo $name;?></p>

@@ -1,7 +1,5 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: chen
- * Date: 25/02/2018
- * Time: 22:33
- */
+<li class="col-sm-12">
+	<a href="student_details/<?php echo $id; ?>"><img src="<?php echo $image; ?>"></a>
+	<h2><?php echo $name ?></h2>
+	<p><?php echo $phone ?></p>
+</li>

@@ -18,7 +18,6 @@ class Edit_Course_Command {
 		$name = Request::get('course_name');
 		$description = Request::get('description');
 		$file = Files::get('name');
-//		log::w(Request::all());
 
 		Courses_Table::_update_course($name, $description, $file ,$id);
 	}

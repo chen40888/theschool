@@ -22,8 +22,17 @@ class Edit_Student_Page {
 	function _bring_all_courses() {
 		$courses_list = Courses_Table::get_all();
 
+		$all_student_courses = Students_Courses_Table::get_student_courses(Request::get('arg1'));
+
+
+
 		$body= '';
 		foreach($courses_list as $course) {
+			foreach($all_student_courses as $is_checked) {
+				if($course['id'] == $is_checked['cours_id']) {
+					$course['is_checked'] = TRUE;
+				}
+			}
 			$body .= Template::get_partial('course_chekbox' ,$course);
 		}
 		return $body;
