@@ -3,11 +3,14 @@ class Edit_User_Command {
 	public static $allowed_roles = array('owner', 'manager','sales');
 
 	public function __construct() {
+
+		Validation::valid(Request::all());
+
 		if(empty($_FILES['file']['name'])){
 			$this->_update_user_use_same_image();
 		} else {
-		$this->_do_upload();
-		$this->_on_upload_success();
+			$this->_do_upload();
+			$this->_on_upload_success();
 		}
 
 		$this->_set_page_response();

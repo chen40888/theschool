@@ -7,6 +7,7 @@ return array(
 		'bad_file_type_only_allow_jpg_jpeg_png_gif' => 'אנא הכנס קובץ בסיומות jpg / jpeg / png / gif',
 		'general_upload_error' => 'בעיה בהעלאת התמונה',
 		'apache__invalid_file_size_too_big' => 'קובץ גדול מידי',
-		'apache__no_file_was_uploaded' => 'אין קובץ'
+		'apache__no_file_was_uploaded' => 'אין קובץ',
+		'empty_input' => 'אנא מלא את כל השדות'
 	),
 );

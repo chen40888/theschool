@@ -3,12 +3,12 @@ class Edit_Student_Command {
 	public static $allowed_roles = array('owner', 'manager','sales');
 
 	public function __construct() {
-		if(empty($_FILES['file']['name'])){
-//			var_dump($_FILES);
 
+		Validation::valid(Request::all());
+
+		if(empty($_FILES['file']['name'])){
 			$this->_update_student_use_same_image();
 		}else {
-//			var_dump($_POST);
 			$this->_do_upload();
 			$this->_on_upload_success();
 		}

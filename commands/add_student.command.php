@@ -3,6 +3,9 @@ class Add_Student_Command {
 	public static $allowed_roles = array('owner', 'manager','sales');
 
 	public function __construct() {
+//		log::w(Request::all());
+
+		Validation::valid(Request::all());
 		$this->_do_upload();
 		$this->_on_upload_success();
 		$this->_set_page_response();
@@ -20,6 +23,7 @@ class Add_Student_Command {
 		$courses = Request::get('courses');
 		$file_name = Files::get('name');
 
+
 		Students_Table::insert_student($name, $phone, $id_card, $email, $file_name);
 		$student_id = $this->_bring_student_id($id_card);
 		$this->_enroll_student_to_courses($student_id, $courses);
@@ -31,7 +35,7 @@ class Add_Student_Command {
 
 	private function _enroll_student_to_courses($student_id, $courses) {
 		foreach($courses as $course_id){
-			Students_Table::insert_into_courses($student_id, $course_id);
+			Students_Courses_Table::insert_into_courses($student_id, $course_id);
 		}
 	}
 

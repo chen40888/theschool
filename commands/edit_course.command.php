@@ -4,6 +4,8 @@ class Edit_Course_Command {
 	public static $allowed_roles = array('owner', 'manager','sales');
 
 	public function __construct() {
+		Validation::valid(Request::all());
+
 		if(empty($_FILES['file']['name'])){
 			$this->_update_course_use_same_image();
 		} else {

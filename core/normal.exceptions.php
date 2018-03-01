@@ -18,6 +18,11 @@ class Upload_Exception extends Base_Exception  {
 		$apache__a_php_extension_stopped_the_file_upload = array('id' => 10);
 }
 
+class Validation_Exception extends Base_Exception  {
+	public static
+		$empty_input = array('id' => 1);
+}
+
 class Authentication_Controller_Exception extends Base_Exception {
 	public static
 		$missing_mandatory_token = array('id' => 1, 'redirect' => 'login'),
