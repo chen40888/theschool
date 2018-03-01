@@ -12,7 +12,7 @@ class Login_Command {
 		if(!$this->user) {
 			if(self::$num == 0) {
 				self::$num++;
-				new Page_Controller(array('problem' => 'Incorrect mail, id or password'));
+				new Page_Controller(true, array('problem' => 'Incorrect mail, id or password'));
 			}
 		}
 		else { $this->_on_regular_login(); }

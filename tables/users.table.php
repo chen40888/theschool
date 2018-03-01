@@ -36,6 +36,12 @@ class Users_Table {
  		WHERE id = $id";
 		DB::execute('UPDATE', $query);
 	}
+	public static function update_user_same_image($name, $phone, $id_card, $password, $email, $role ,$id) {
+		$query = 	"UPDATE users SET  name = '$name', phone = '$phone', id_card = '$id_card', email = '$email',
+ 		password = '$password', role = '$role'
+ 		WHERE id = $id";
+		DB::execute('UPDATE', $query);
+	}
 	public static function get_all_users() {
 		$query = "SELECT * FROM users";
 		return DB::fetch_all($query);

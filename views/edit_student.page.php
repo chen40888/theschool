@@ -1,4 +1,4 @@
-<form action="/edit_student/<?php echo $id?>" method="post" enctype="multipart/form-data">
+<form action="/edit_student/<?php echo Request::get('arg1')?>" method="post" enctype="multipart/form-data">
 <?php echo $content; ?>
 <div class="funkyradio">
 	<?php echo $courses?>

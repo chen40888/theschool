@@ -8,6 +8,7 @@ include ROOT . 'core/conf.global.php'; // Main configuration parameters.
 include ROOT . 'core/core.exceptions.php'; // Load mandatory Core Exception Classes.
 include ROOT . 'core/normal.exceptions.php'; // Load mandatory Normal (commands/controllers) Exception Classes.
 include ROOT . 'classes/custom_exception.php'; // Load mandatory Custom_Exception Class.
+include ROOT . 'classes/validation.php'; // Load mandatory Custom_Exception Class.
 include ROOT . 'classes/autoloader.php'; // Used by spl_autoload_register() to automatically include class files on request
 
 new Bootstrap;

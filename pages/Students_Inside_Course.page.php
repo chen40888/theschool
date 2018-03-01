@@ -17,9 +17,7 @@ class Students_Inside_Course_Page {
 			$all_students .= 	Template::get_partial('students', $student);
 		}
 
-
-		$body = $course . $all_students;
-
-		Template::set('content',$body);
+		Template::set('course',$course);
+		Template::set('students',$all_students);
 	}
 }

@@ -3,9 +3,25 @@ class Edit_User_Command {
 	public static $allowed_roles = array('owner', 'manager','sales');
 
 	public function __construct() {
+		if(empty($_FILES['file']['name'])){
+			$this->_update_user_use_same_image();
+		} else {
 		$this->_do_upload();
 		$this->_on_upload_success();
+		}
+
 		$this->_set_page_response();
+	}
+
+	private function _update_user_use_same_image() {
+		$id = Request::get('id');
+		$role = Request::get('role');
+		$email = Request::get('email');
+		$phone = Request::get('phone');
+		$name = Request::get('user_name');
+		$id_card = Request::get('id_card');
+		$password = Request::get('password');
+		Users_Table::update_user_same_image($name, $phone, $id_card, $password, $email, $role ,$id);
 	}
 
 	private function _do_upload() {
@@ -14,13 +30,13 @@ class Edit_User_Command {
 
 	public function _on_upload_success() {
 		$id = Request::get('id');
-		$name = Request::get('user_name');
+		$file = Files::get('name');
+		$role = Request::get('role');
 		$phone = Request::get('phone');
+		$email = Request::get('email');
+		$name = Request::get('user_name');
 		$id_card = Request::get('id_card');
 		$password = Request::get('password');
-		$email = Request::get('email');
-		$role = Request::get('role');
-		$file = Files::get('name');
 
 		Users_Table::update_user($name, $phone, $id_card, $password, $email, $role, $file ,$id);
 	}

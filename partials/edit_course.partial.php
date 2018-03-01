@@ -1,5 +1,5 @@
 <h2>עדכון קורס</h2>
-<form method="post" action="/edit_course" enctype="multipart/form-data">
+<form method="post" action="/edit_course/<?php echo Request::get('arg1')?>" enctype="multipart/form-data">
 	<input hidden name="id" value="<?php echo $id?>">
 	<div class="form-group">
 		<label>שם :</label>
@@ -15,7 +15,7 @@
 	</div>
 	<div class="form-group">
 		<label>העלת תמונה :</label>
-		<input type="file" required name="file">
+		<input type="file" name="file">
 	</div>
 	<?php echo $message; ?>
 

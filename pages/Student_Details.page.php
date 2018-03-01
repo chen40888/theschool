@@ -13,12 +13,12 @@ class Student_Details_Page {
 
 		$all_courses = '';
 		foreach($courses as $course) {
-			$course['image'] = '/img/courses/' . $course['image'];
+			$course['image'] = conf('url.courses') . $course['image'];
+
 			$all_courses .= Template::get_partial('course', $course);
 		}
 
-		$content = $student . $all_courses;
-		Template::set('content', $content);
-
+		Template::set('student', $student);
+		Template::set('courses', $all_courses);
 	}
 }

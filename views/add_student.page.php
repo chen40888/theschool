@@ -22,7 +22,7 @@
 		<input type="file" required="required" name="file" />
 	</div>
 	<div class="form-group">
-		<div class="col-md-6">
+		<div>
 			<div class="funkyradio">
 				<?php echo $courses?>
 			</div>

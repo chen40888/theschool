@@ -28,6 +28,7 @@ class Edit_Student_Page {
 
 		$body= '';
 		foreach($courses_list as $course) {
+			$course['is_checked'] = FALSE;
 			foreach($all_student_courses as $is_checked) {
 				if($course['id'] == $is_checked['cours_id']) {
 					$course['is_checked'] = TRUE;

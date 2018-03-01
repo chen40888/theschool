@@ -4,9 +4,22 @@ class Edit_Course_Command {
 	public static $allowed_roles = array('owner', 'manager','sales');
 
 	public function __construct() {
-		$this->_do_upload();
-		$this->_on_upload_success();
+		if(empty($_FILES['file']['name'])){
+			$this->_update_course_use_same_image();
+		} else {
+			$this->_do_upload();
+			$this->_on_upload_success();
+		}
+
 		$this->_set_page_response();
+	}
+
+	private function _update_course_use_same_image() {
+		$id = Request::get('id');
+		$name = Request::get('course_name');
+		$description = Request::get('description');
+
+		Courses_Table::_update_course_same_image($name, $description ,$id);
 	}
 
 	private function _do_upload() {

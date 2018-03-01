@@ -1,5 +1,5 @@
 <h2>הוספת משתמש חדש</h2>
-<form action="/edit_user" method="post" enctype="multipart/form-data">
+<form action="/edit_user/<?php echo Request::get('arg1');?>" method="post" enctype="multipart/form-data">
 	<input name="id" value="<?php echo $id?>">
 	<div id="add_student" class="form-group">
 		<label>ת"ז:</label>
@@ -36,7 +36,7 @@
 	</div>
 	<div class="form-group">
 		<label>העלת תמונה :</label>
-		<input type="file" required name="file">
+		<input type="file" name="file">
 	</div>
 	<?php echo $error_message; ?>
 

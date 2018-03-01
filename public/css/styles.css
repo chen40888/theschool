@@ -32,8 +32,9 @@ ul {
 }
 form {
 	display: block;
-	max-width: 100%;
+	max-width: 50%;
 	white-space: nowrap;
+	margin: auto;
 }
 table {
 	margin: 0 auto;
@@ -66,6 +67,14 @@ textarea {
 	white-space: pre-wrap;
 	-webkit-flex-shrink: 1;
 	font: 400 16px Arial, Helvetica, sans-serif;
+}
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type="number"] {
+	-moz-appearance: textfield;
 }
 input {
 	width: 250px;
@@ -130,6 +139,9 @@ label {
 	font-size: 12px;
 	margin-top: 12px;
 }
+.login form{
+	max-width: 100%;
+}
 .btn {
 	color: #fff;
 	width: 250px;
@@ -154,8 +166,8 @@ label {
 	display: none;
 }
 img {
-	width: 150px;
-	height: 150px;
+	width: 100px;
+	height: 100px;
 }
 .courses {
 	float: left;

@@ -16,6 +16,10 @@ class Courses_Table {
 		$query = "UPDATE courses c SET c.name = '$name', c.description = '$description',c.image = '$file' WHERE c.id = '{$id}'";
 		DB::execute('UPDATE', $query);
 	}
+	public static function _update_course_same_image($name, $description ,$id) {
+		$query = "UPDATE courses c SET c.name = '$name', c.description = '$description' WHERE c.id = '{$id}'";
+		DB::execute('UPDATE', $query);
+	}
 	public static function delete_course_with_students_inside($id) {
 		$query = "DELETE FROM students_courses WHERE cours_id=$id";
 		DB::execute('DELETE', $query);

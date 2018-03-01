@@ -31,7 +31,6 @@ class Students_Courses_Table {
 		RIGHT JOIN courses  AS c ON s.cours_id = c.id
 		WHERE s.student_id ='{$id}'";
 
-		$result = DB::fetch_all($query);
-		return $result;
+		return DB::fetch_all($query);
 	}
 }

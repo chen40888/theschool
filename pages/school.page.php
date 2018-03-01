@@ -16,7 +16,7 @@ class School_Page {
 
 		$body= '';
 		foreach($courses_list as $course) {
-			$course['image'] = '/img/courses/' . $course['image'];
+			$course['image'] = conf('url.courses') . $course['image'];
 			$body .= Template::get_partial('inside' ,$course);
 		}
 		return $body;
