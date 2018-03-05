@@ -9,7 +9,7 @@
 		<textarea name="description" required></textarea>
 	</div>
 	<div class="form-group">
-		<input type="file" required name="file">
+		<input class="file" type="file" required name="file">
 	</div>
 
 	<?php echo $message; ?>

@@ -24,9 +24,9 @@
 	<div class="form-group">
 		<label>role :
 			<select name="role" class="form-control">
-				<option value="sales">sales</option>
-				<option value="manager">manager</option>
 				<?php if(User::$role == 'owner') echo '<option value="owner">owner</option>'; ?>
+				<option value="manager">manager</option>
+				<option value="sales">sales</option>
 			</select>
 		</label>
 	</div>
@@ -36,7 +36,7 @@
 	</div>
 	<div class="form-group">
 		<label>העלת תמונה :</label>
-		<input type="file" name="file">
+		<input class="file" type="file" name="file">
 	</div>
 	<?php echo $error_message; ?>
 

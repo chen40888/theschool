@@ -32,7 +32,7 @@ ul {
 }
 form {
 	display: block;
-	max-width: 50%;
+	max-width: 80%;
 	white-space: nowrap;
 	margin: auto;
 }
@@ -203,4 +203,19 @@ li {
 	padding: 15px 0;
 	color: lightgreen;
 	font: 25px/30px 'Open Sans', sans-serif;
+}
+.course_image {
+	width: 50px;
+	height: 35px;
+	float: right;
+}
+.course_details .course {
+	width: 50%;
+	margin: auto;
+}
+input.file {
+	margin: auto;
+}
+.main_student {
+	background: #adadad;
 }

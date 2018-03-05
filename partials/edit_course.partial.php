@@ -15,7 +15,7 @@
 	</div>
 	<div class="form-group">
 		<label>העלת תמונה :</label>
-		<input type="file" name="file">
+		<input class="file" type="file" name="file">
 	</div>
 	<?php echo $message; ?>
 

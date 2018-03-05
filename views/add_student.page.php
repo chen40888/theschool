@@ -19,7 +19,7 @@
 
 	<div class="form-group">
 		<label>העלת תמונה :</label>
-		<input type="file" required="required" name="file" />
+		<input class="file" type="file" required="required" name="file" />
 	</div>
 	<div class="form-group">
 		<div>

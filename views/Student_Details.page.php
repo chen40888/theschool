@@ -2,6 +2,7 @@
 <ul class="col-sm-12">
 	<?php echo $student; ?>
 </ul>
-<ul class="col-sm-12">
+<h3>הקורסים של הסטודנט :</h3>
+<ul class="col-sm-12 course_details">
 	<?php echo $courses; ?>
 </ul>
