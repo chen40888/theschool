@@ -173,7 +173,7 @@ img {
 	float: left;
 }
 li {
-	width: 300px;
+	/*width: 300px;*/
 	overflow: hidden;
 	display: inline-block;
 }
@@ -217,5 +217,21 @@ input.file {
 	margin: auto;
 }
 .main_student {
+	height: 800px;
+	overflow: scroll;
 	background: #adadad;
+}
+.school .student{
+	display: block;
+}
+.school ul {
+	direction: ltr;
+	text-align: left;
+}
+.student div {
+	display: inline-block;
+}
+.student img {
+	float: left;
+	margin: 24px 10px 0 0;
 }
