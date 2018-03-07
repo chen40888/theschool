@@ -13,6 +13,8 @@ class Add_Student_Page {
 
 		$body = '';
 		foreach($courses_list as $course) {
+			$course['image'] = conf('url.courses') . $course['image'];
+
 			$body .= Template::get_partial('course_chekbox' ,$course);
 		}
 

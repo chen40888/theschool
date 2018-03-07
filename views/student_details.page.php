@@ -1,9 +1,9 @@
 <div class="container">
 	<div class="jumbotron text-center">
-		<a href="/edit_course/<?php echo Request::get('arg1')?>">
-			<button type="button" class="btn btn-default btn-sm">Edit Course</button>
+		<a href="/edit_student/<?php echo Request::get('arg1')?>">
+			<button type="button" class="btn btn-default btn-sm">Edit Student</button>
 		</a>
-		<?php echo $course; ?>
+		<?php echo $student; ?>
 	</div>
 	<!--<a href="/add_user/"><button class="btn btn-warrning">add user</button></a>-->
 
@@ -15,7 +15,7 @@
 				</div>
 				<div class="panel-body student">
 					<div class="row slideanim">
-						<?php echo $students; ?>
+						<?php echo $courses; ?>
 					</div>
 				</div>
 			</div>
