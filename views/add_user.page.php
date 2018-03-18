@@ -14,7 +14,7 @@
 	</div>
 	<div class="form-group">
 		<label>Email address</label>
-		<input type="email" name="email" class="form-control" required placeholder="Enter email">
+		<input type="email" name="email" class="form-control" required value="" placeholder="Enter email">
 	</div>
 	<div class="form-group">
 		<label>סיסמה :</label>

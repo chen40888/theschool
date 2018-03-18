@@ -15,20 +15,20 @@ class Students_Courses_Table {
 		$query = "SELECT *
 		FROM students_courses AS c
 		RIGHT JOIN students  AS s ON c.student_id = s.id
-		WHERE c.cours_id ='{$id}'";
+		WHERE c.course_id ='{$id}'";
 
 		return DB::fetch_all($query);
 	}
 
 	public static function insert_into_courses($student_id,$course_id) {
-		$query = "INSERT INTO students_courses SET student_id = '$student_id', cours_id = '$course_id'";
+		$query = "INSERT INTO students_courses SET student_id = '$student_id', course_id = '$course_id'";
 		DB::execute('INSERT', $query);
 	}
 
 	public static function get_student_courses($id) {
 		$query = "SELECT *
 		FROM students_courses AS s
-		RIGHT JOIN courses  AS c ON s.cours_id = c.id
+		RIGHT JOIN courses  AS c ON s.course_id = c.id
 		WHERE s.student_id ='{$id}'";
 
 		return DB::fetch_all($query);

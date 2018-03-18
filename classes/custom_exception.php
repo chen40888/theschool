@@ -11,10 +11,12 @@ class Custom_Exception extends Exception {
 		$description = $error_array['desc'];
 
 		$error_translation = Lang::get('exceptions', $description);
-		Log::w('$description: ' . $description . ' | $error_translation: ' . $error_translation);
+		//Log::w('$description: ' . $description . ' | $error_translation: ' . $error_translation);
 		if($error_translation) $description = $error_translation;
 
+		Log::w($error_array);
+		//if(($error_array['role']) == 'warning')
 		if(($error_array['severity']) == 'warning') Response::die_with_response(array('warning_translation' => Lang::get('warnings', $error_array['desc'])));
-		Error_Handler::run_on_custom_exception($error_array['id'], $description, $error_array['class_name']);
+		Error_Handler::run_on_custom_exception($description);
 	}
 }

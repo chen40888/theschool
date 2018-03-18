@@ -1,12 +1,12 @@
 <?php
 class Edit_Course_Command {
 
-	public static $allowed_roles = array('owner', 'manager');
+	public static $allowed_roles = array('owner', 'manager');//מורשי עריכת קורס
 
 	public function __construct() {
-		Validation::validate(Request::all());
+		Validation::validate(Request::all());//ולידציה לכל האינפוטים. Request::all() מביא לי את כל מה שנשלח בpost/get
 
-		if(empty($_FILES['file']['name'])){
+		if(!Files::get('name')){//בודק עם נשלח file.
 			$this->_update_course_use_same_image();
 		} else {
 			$this->_do_upload();

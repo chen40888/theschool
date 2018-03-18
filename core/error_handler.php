@@ -26,7 +26,7 @@ class Error_Handler {
 		Response::die_with_error($error_array);
 	}
 
-	public static function run_on_custom_exception($error_code, $error_description) {
+	public static function run_on_custom_exception($error_description) {
 		new Page_Controller(true, array(
 			'message' => '<div class="error_message">' . $error_description . '</div>'
 		));

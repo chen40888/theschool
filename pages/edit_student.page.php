@@ -36,7 +36,7 @@ class Edit_Student_Page {
 
 			$course['is_checked'] = FALSE;// ערך defult
 			foreach($all_student_courses as $is_checked) {
-				if($course['id'] == $is_checked['cours_id']) {
+				if($course['id'] == $is_checked['course_id']) {
 					$course['is_checked'] = TRUE; // מידה והסטודנט רשום לקורס הוא משנה את הערך לtrue
 				}
 			}

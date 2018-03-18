@@ -5,7 +5,7 @@ class Edit_User_Command {
 	public function __construct() {
 		Validation::validate(Request::all());
 
-		if(empty($_FILES['file']['name'])){
+		if(!Files::get('name')){
 			$this->_update_user_use_same_image();
 		} else {
 			$this->_do_upload();

@@ -32,12 +32,16 @@ ul {
 }
 select {
 	text-align: center;
+	text-align-last: center;
 }
 form {
 	display: block;
 	max-width: 80%;
 	white-space: nowrap;
 	margin: auto;
+}
+.hide {
+	display: none;
 }
 table {
 	margin: 0 auto;
@@ -339,10 +343,6 @@ h2 {
 .school .course_show p {
 	margin: 60px 0 10px;
 }
-h4 {
-	overflow-x: hidden;
-}
-
 .row::-webkit-scrollbar {
 	width: 12px;
 }
@@ -383,4 +383,7 @@ a.show {
 }
 .header_links {
 	font-size: 20px;
+}
+.jumbotron button {
+	margin: 19px auto;
 }

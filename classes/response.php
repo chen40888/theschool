@@ -40,9 +40,10 @@ class Response {
 
 	public static function die_with_redirect($page_name, $reason = '') {
 		$redirect_to_url = conf('base_url') . $page_name;
-		//Log::w('$redirect_to_url: "' . $redirect_to_url . '"' . ' | $reason: ' . $reason);
+		Log::w('$redirect_to_url: "' . $redirect_to_url . '"' . ' | $reason: ' . $reason);
 
-		header('Location: ' . $redirect_to_url);
+		$current_page_name = Request::get('arg0', 'login');
+		if($current_page_name != $page_name) header('Location: ' . $redirect_to_url);
 		die();
 
 	}

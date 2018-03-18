@@ -19,7 +19,7 @@ class Courses_Table {
 		DB::execute('UPDATE', $query);
 	}
 	public static function delete_course_with_students_inside($id) {
-		$query = "DELETE FROM students_courses WHERE cours_id = {$id}";
+		$query = "DELETE FROM students_courses WHERE course_id = {$id}";
 		DB::execute('DELETE', $query);
 
 		$query = "DELETE FROM courses WHERE id = {$id} LIMIT 1";

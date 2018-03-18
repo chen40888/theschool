@@ -6,17 +6,17 @@ class Edit_Student_Command {
 
 		Validation::validate(Request::all());
 
-		if(empty($_FILES['file']['name'])){ // בדיקה עם יש file או לא
+		if(!Files::get('name')){ // בדיקה עם יש file או לא
 			$this->_update_student_use_same_image();
 		}else {
 			$this->_do_upload();
 			$this->_on_upload_success();
 		}
-		$this->_set_page_response();
+		$this->_set_page_response();// חיווי שאכן המשתמש הוסף.
 	}
 
 	private function _update_student_use_same_image() {
-		$this->_update_student(true);
+		$this->_update_student(true);//בוליאן אם איו file משנה לtrue וככה אני שולח אותו לפונקציה שונה. המטרה - ליעל את הקוד בשביל לא לחזור על עצמי.
 		$this->_update_student_courses(Request::get('id'), Request::get('courses'));
 	}
 
@@ -52,7 +52,7 @@ class Edit_Student_Command {
 
 	private function _set_page_response() {
 		Template::set(array(
-			'message' => '<div class="success_message">הסטודנט עודכן בהצלחה</div>'
+			'message' => '<div class="success_message">הסטודנט עודכן בהצלחה</div>'// מחזיר לאותו עמוד שהסטודנט עודכן בהצלחה
 		));
 	}
 }
