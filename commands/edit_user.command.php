@@ -3,8 +3,7 @@ class Edit_User_Command {
 	public static $allowed_roles = array('owner', 'manager','sales');
 
 	public function __construct() {
-
-		Validation::valid(Request::all());
+		Validation::validate(Request::all());
 
 		if(empty($_FILES['file']['name'])){
 			$this->_update_user_use_same_image();
@@ -13,7 +12,7 @@ class Edit_User_Command {
 			$this->_on_upload_success();
 		}
 
-		$this->_set_page_response();
+		$this->_set_message();
 	}
 
 	private function _update_user_use_same_image() {
@@ -43,8 +42,9 @@ class Edit_User_Command {
 
 		Users_Table::update_user($name, $phone, $id_card, $password, $email, $role, $file ,$id);
 	}
-	private function _set_page_response() {
-		new Page_Controller(true, array(
+
+	private function _set_message() {
+		Template::set(array(
 			'message' => '<div class="success_message">המשתמש עודכן בהצלחה</div>'
 		));
 	}

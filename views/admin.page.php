@@ -14,7 +14,7 @@
 				</a>
 				<h1>Users :</h1>
 			</div>
-			<div class="panel-body student">
+			<div class="panel-body">
 				<div class="row slideanim">
 					<?php echo $users; ?>
 				</div>

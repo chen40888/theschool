@@ -1,11 +1,15 @@
 <div class="container">
 	<div class="jumbotron text-center">
-		<a href="/edit_course/<?php echo Request::get('arg1')?>">
+	<?php if($user_role == 'sales') echo '';
+		else echo '<a href="/edit_course/' .$course_id .'">
 			<button type="button" class="btn btn-default btn-sm">Edit Course</button>
-		</a>
+		</a>';
+	?>
+
 		<?php echo $course; ?>
+		<div><h3>מספר הסטודנטים אשר נמצאים בקורס הם: </h3><?php echo $count; ?></div>
+
 	</div>
-	<!--<a href="/add_user/"><button class="btn btn-warrning">add user</button></a>-->
 
 	<div class="row slideanim">
 		<div class="col-xs-12">

@@ -9,7 +9,7 @@
 			<form id="hook_login_form" method="post" action="/login" name="login_form" novalidate="">
 				<div class="login-form">
 					<div class="control-group">
-						<input name="mail_or_id" type="text" class="login-field" value="" placeholder='ת"ז' id="login-card-or-mail">
+						<input name="mail_or_id" type="text" class="login-field" value="" placeholder='ת"ז או מייל' id="login-card-or-mail">
 						<label class="login-field-icon fui-user" for="login-card-or-mail"></label>
 					</div>
 

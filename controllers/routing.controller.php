@@ -18,6 +18,7 @@ class Routing_Controller {
 		}
 
 		if(strpos(Request::$uri, '.') != false) new Failed_Resource_Handler;
-		else new Page_Controller;
+		if(serv('REQUEST_METHOD') == 'POST') new Request::$command_name;
+		new Page_Controller;
 	}
 }

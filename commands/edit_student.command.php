@@ -4,9 +4,9 @@ class Edit_Student_Command {
 
 	public function __construct() {
 
-		Validation::valid(Request::all());
+		Validation::validate(Request::all());
 
-		if(empty($_FILES['file']['name'])){
+		if(empty($_FILES['file']['name'])){ // בדיקה עם יש file או לא
 			$this->_update_student_use_same_image();
 		}else {
 			$this->_do_upload();
@@ -16,16 +16,8 @@ class Edit_Student_Command {
 	}
 
 	private function _update_student_use_same_image() {
-		$student_id = Request::get('id');
-		$name = Request::get('student_name');
-		$phone = Request::get('phone');
-		$id_card = Request::get('id_card');
-		$email = Request::get('email');
-		$courses = Request::get('courses');
-
-
-		Students_Table::update_student_same_image($name, $phone, $id_card, $email, $student_id);
-		$this->_update_student_courses($student_id, $courses);
+		$this->_update_student(true);
+		$this->_update_student_courses(Request::get('id'), Request::get('courses'));
 	}
 
 	public function _do_upload() {
@@ -33,16 +25,20 @@ class Edit_Student_Command {
 	}
 
 	private function _on_upload_success() {
-		$student_id = Request::get('id');
+		$this->_update_student();
+		$this->_update_student_courses(Request::get('id'), Request::get('courses'));
+	}
+// פנקציה שמעלה לdb אם אין תמונה  הוא משנה את הערך של $is_no_image ל true ושולח אותו במידת הצורך לפונקציה שמעלה ללא הimage וההפך
+	private function _update_student($is_no_image = false) {
 		$name = Request::get('student_name');
 		$phone = Request::get('phone');
 		$id_card = Request::get('id_card');
 		$email = Request::get('email');
-		$courses = Request::get('courses');
+		$student_id = Request::get('id');
 		$file_name = Files::get('name');
 
-		Students_Table::update_student($name, $phone, $id_card, $email, $file_name, $student_id);
-		$this->_update_student_courses($student_id, $courses);
+		if($is_no_image) Students_Table::update_student_same_image($name, $phone, $id_card, $email, $student_id);
+		else Students_Table::update_student($name, $phone, $id_card, $email, $student_id, $file_name);
 	}
 
 	private function _update_student_courses($student_id, $courses_array) {
@@ -55,7 +51,7 @@ class Edit_Student_Command {
 	}
 
 	private function _set_page_response() {
-		new Page_Controller(true, array(
+		Template::set(array(
 			'message' => '<div class="success_message">הסטודנט עודכן בהצלחה</div>'
 		));
 	}

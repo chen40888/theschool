@@ -1,11 +1,12 @@
 <div class="container">
 	<div class="jumbotron text-center">
-		<a href="/edit_student/<?php echo Request::get('arg1')?>">
+		<a href="/edit_student/<?php echo $student_id; ?>">
 			<button type="button" class="btn btn-default btn-sm">Edit Student</button>
 		</a>
 		<?php echo $student; ?>
+		<div><h3>מספר הקורסים אשר הסטודנט נמצא בהם: </h3><?php echo $count; ?></div>
+
 	</div>
-	<!--<a href="/add_user/"><button class="btn btn-warrning">add user</button></a>-->
 
 	<div class="row slideanim">
 		<div class="col-xs-12">

@@ -14,11 +14,16 @@ class Student_Details_Page {
 		$all_courses = '';
 		foreach($courses as $course) {
 			$course['image'] = conf('url.courses') . $course['image'];
+			$course['page_name'] = Request::get('arg0');
 
 			$all_courses .= Template::get_partial('course', $course);
 		}
 
-		Template::set('student', $student);
-		Template::set('courses', $all_courses);
+		Template::set(array(
+			'student' => $student,
+			'courses' => $all_courses,
+			'student_id' => $id,
+			'count' => count($courses)
+		));
 	}
 }

@@ -1,31 +1,29 @@
 <?php
 class Add_Course_Command {
-	public static $allowed_roles = array('owner', 'manager','sales');
+	public static $allowed_roles = array('owner', 'manager');
 
 	public function __construct() {
-//		log::w(Request::all());
-		Validation::valid(Request::all());
-		$this->_do_upload();
-		$this->_on_upload_success();
-		$this->_set_page_response();
+		//Log::w(Request::all());
+		Validation::validate(Request::all()); //בודק שאין input ריק
+		$this->_do_upload();//עושה uplode
+		$this->_on_upload_success();// אם מצליח לעשות עושה העלה לdb
+		$this->_set_page_response();// שולח הודעת הצלחה במידה והכל עבד כמו שצריך, אם יש בעיה זה נשלח בexcaption
 	}
 
 	private function _do_upload() {
 		new Upload;
 	}
 
+	private function _on_upload_success() {
+		$name = Request::get('course_name');
+		$description = Request::get('description');
+		$file_name = Files::get('name');
 
-private function _on_upload_success() {
-	$name = Request::get('course_name');
-	$description = Request::get('description');
-	$file_name = Files::get('name');
-//	Validation::valid($name, $description);
-
-	Courses_Table::insert_course($name,$description, $file_name);
+		Courses_Table::insert_course($name, $description, $file_name);
 	}
 
 	private function _set_page_response() {
-		new Page_Controller(true, array(
+		Template::set(array(
 			'message' => '<div class="success_message">הקורס הוסף בהצלחה</div>'
 		));
 	}

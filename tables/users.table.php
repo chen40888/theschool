@@ -26,22 +26,26 @@ class Users_Table {
  					password = '$password', role = '$role' ";
 		DB::execute('INSERT', $query);
 	}
+
 	public static function bring_user_to_update($id) {
 		$query = "SELECT * FROM users WHERE id = $id";
 		return DB::fetch_row($query);
 	}
-	public static function update_user($name, $phone, $id_card, $password, $email, $role, $file ,$id) {
-		$query = 	"UPDATE users SET  name = '$name', phone = '$phone', id_card = '$id_card', email = '$email',
+
+	public static function update_user($name, $phone, $id_card, $password, $email, $role, $file, $id) {
+		$query = "UPDATE users SET  name = '$name', phone = '$phone', id_card = '$id_card', email = '$email',
  		image = '$file', password = '$password', role = '$role'
  		WHERE id = $id";
 		DB::execute('UPDATE', $query);
 	}
-	public static function update_user_same_image($name, $phone, $id_card, $password, $email, $role ,$id) {
-		$query = 	"UPDATE users SET  name = '$name', phone = '$phone', id_card = '$id_card', email = '$email',
+
+	public static function update_user_same_image($name, $phone, $id_card, $password, $email, $role, $id) {
+		$query = "UPDATE users SET  name = '$name', phone = '$phone', id_card = '$id_card', email = '$email',
  		password = '$password', role = '$role'
  		WHERE id = $id";
 		DB::execute('UPDATE', $query);
 	}
+
 	public static function get_all_users() {
 		$query = "SELECT * FROM users";
 		return DB::fetch_all($query);
@@ -51,6 +55,8 @@ class Users_Table {
 		$query = "SELECT * FROM users WHERE role = 'manager' OR role = 'sales'";
 		return DB::fetch_all($query);
 	}
-
-
+	public static function delete_user($id) {
+		$query = "DELETE FROM users WHERE id = {$id} LIMIT 1";
+		DB::execute('DELETE', $query);
+	}
 }

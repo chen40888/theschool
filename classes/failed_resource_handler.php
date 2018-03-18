@@ -15,7 +15,7 @@ class Failed_Resource_Handler {
 	}
 
 	private function _die_with_no_image() {
-		$no_image_path = ROOT . '/images/no_image.png';
+		$no_image_path = ROOT . 'public/images/no_photo.gif';
 		$no_image_pointer = fopen($no_image_path, 'rb');
 
 		header("Content-Type: image/png");

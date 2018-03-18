@@ -13,13 +13,13 @@
 	-webkit-box-sizing: border-box;
 }
 html {
-	direction: rtl;
+	/*direction: rtl;*/
 }
 body {
 	margin: 0;
 	color: #000;
 	width: 100%;
-	direction: rtl;
+	/*direction: rtl;*/
 	text-align: center;
 	position: relative;
 	-webkit-user-select: none;
@@ -29,6 +29,9 @@ body {
 }
 ul {
 	list-style-type: none;
+}
+select {
+	text-align: center;
 }
 form {
 	display: block;
@@ -47,19 +50,20 @@ table div {
 	font: 17px/25px 'Open Sans', sans-serif;
 }
 textarea {
-	margin: 0;
 	padding: 0;
 	width: 100%;
+	margin: auto;
 	flex-grow: 1;
 	resize: none;
-	height: 25px;
+	height: 80px;
 	border: none;
 	outline: none;
 	display: block;
 	flex-shrink: 1;
-	background: none;
+	background: white;
 	line-height: 25px;
 	overflow-x: hidden;
+	text-align: center;
 	overflow-y: visible;
 	-webkit-box-flex: 1;
 	-webkit-flex-grow: 1;
@@ -189,6 +193,7 @@ li {
 	display: inline;
 	font: 25px/30px 'Open Sans', sans-serif;
 	color: #FFFFFF;
+	padding: 0 13px 0 0;
 }
 .nav .logout {
 	/*float: left;*/
@@ -220,10 +225,8 @@ input.file {
 .school .student{
 	display: block;
 	text-align: left;
-}
-.school ul {
-	direction: ltr;
-	text-align: left;
+	height: 1000px;
+	overflow-y: scroll;
 }
 .student div {
 	display: inline-block;
@@ -234,11 +237,6 @@ input.file {
 .slideanim img {
 	float: left;
 }
-
-
-
-
-
 .item h4 {
 	font-size: 19px;
 	line-height: 1.375em;
@@ -273,6 +271,7 @@ input.file {
 	border-bottom-right-radius: 0px;
 }
 .slideanim {visibility:hidden;}
+
 .slide {
 	animation-name: slide;
 	-webkit-animation-name: slide;
@@ -312,6 +311,10 @@ input.file {
 .this_course h2 {
 	margin: 20px 0 50px 0;
 }
+.school .this_course {
+	height: 1000px;
+	overflow-y: scroll;
+}
 .show_description {
 	opacity: 0;
 }
@@ -335,4 +338,49 @@ h2 {
 }
 .school .course_show p {
 	margin: 60px 0 10px;
+}
+h4 {
+	overflow-x: hidden;
+}
+
+.row::-webkit-scrollbar {
+	width: 12px;
+}
+
+.row::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+}
+
+.row::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+.sales .sale_role {
+	padding: 80px 0 19px;
+}
+a.show {
+	display: block;
+}
+.del_btn {
+	display: inline-block;
+}
+.jumbotron h3 {
+	direction: rtl;
+}
+.scroll_style::-webkit-scrollbar {
+	width: 12px;
+}
+
+.scroll_style::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+}
+
+.scroll_style::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+.header_links {
+	font-size: 20px;
 }

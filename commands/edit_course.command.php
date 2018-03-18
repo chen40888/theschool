@@ -1,10 +1,10 @@
 <?php
 class Edit_Course_Command {
 
-	public static $allowed_roles = array('owner', 'manager','sales');
+	public static $allowed_roles = array('owner', 'manager');
 
 	public function __construct() {
-		Validation::valid(Request::all());
+		Validation::validate(Request::all());
 
 		if(empty($_FILES['file']['name'])){
 			$this->_update_course_use_same_image();
@@ -37,7 +37,7 @@ class Edit_Course_Command {
 		Courses_Table::_update_course($name, $description, $file ,$id);
 	}
 	private function _set_page_response() {
-		new Page_Controller(true, array(
+		Template::set(array(
 			'message' => '<div class="success_message">הקורס עודכן בהצלחה</div>'
 		));
 	}

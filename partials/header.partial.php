@@ -7,7 +7,7 @@
 	<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no'>
 	<?php echo $css_tags_html; ?>
 </head>
-<body class="<?php echo $page_name; ?> <?php echo $role; ?>">
+<body class="<?php echo $page_name; ?> <?php echo User::$role; ?>">
 <div class="wrapper">
 	<header>
 
@@ -19,13 +19,12 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Portfolio</a>
 				</div>
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="nav navbar-nav">
-						<li class="<?php echo ($page_name == 'school' ? ' active' : ''); ?>"><a href="/school">school</a></li>
+						<li class="header_links <?php echo ($page_name == 'school' ? 'active' : ''); ?>"><a href="/school">school</a></li>
 						<?php if(User::$role != 'sales'){
-							echo '<li class="' . ($page_name == 'admin' ? 'active' : '') .'"><a href="/admin">admin</a></li>'; }?>
+							echo '<li class="header_links ' . ($page_name == 'admin' ? 'active' : '') .'"><a href="/admin">admin</a></li>'; }?>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li>

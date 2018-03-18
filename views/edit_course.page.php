@@ -1,3 +1,18 @@
+<?php echo $message; ?>
+
 <?php echo $content; ?>
-<a href="/delete_course/<?php echo Request::get('arg1');?>"><button class="btn btn-warrning">delete course</button></a>
+<button class="btn btn-warrning" id="hook_delete">Delete Course</button>
+<div id="show_btn" class="hidden">
+	<h4>are you sure you want to delete this course?</h4>
+	<a class="del_btn" href="/delete_course/<?php echo $id;?>">
+		<button class="btn btn-warrning">Yes</button>
+	</a>
+	<a class="del_btn" href="/school/">
+		<button class="btn btn-warrning">No</button>
+	</a>
+</div>
+
+
+
+
 

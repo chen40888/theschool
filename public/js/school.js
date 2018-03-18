@@ -3,6 +3,7 @@ $(document).ready(function(){
 	$(window).scroll(_show_all);
 
 	function _show_all() {
+		$('#hidden_on_scroll').html('');
 		$(".slideanim").each(_show_it)
 	}
 		function _show_it() {

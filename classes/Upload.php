@@ -36,13 +36,3 @@ class Upload {
 		else if(Files::get('error') == 8) throw new Custom_Exception(Upload_Exception::$apache__a_php_extension_stopped_the_file_upload);
 	}
 }
-
-class Files {
-	public static function get($key, $default = NULL) {
-		return (!empty($_FILES['file'][$key]) ? $_FILES['file'][$key] : $default);
-	}
-
-	public static function set($key, $value) {
-		$_FILES['file'][$key] = $value;
-	}
-}

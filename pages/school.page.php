@@ -1,14 +1,17 @@
 <?php
+// זה דף טעינת הנתונים מהDB של הקורסים והסטודנטים, הנתונים שבאים מהDB מורכבים בתוך הטמפלט ולבסוף נשלחים לVIEW בתוך משתנים
 class School_Page {
 	public static $allowed_roles = array('owner', 'manager','sales');
 
 	public function __construct() {
 		$all_courses = $this->_bring_all_courses();
 		$all_students = $this->_bring_all_students();
-//		$all_data = $all_courses . $all_students;
 
-		Template::set('all_courses' ,$all_courses);
-		Template::set('all_students' ,$all_students);
+		Template::set(array(
+			'all_courses' => $all_courses,
+			'all_students' => $all_students,
+			'user_role' => User::$role
+		));
 	}
 
 	function _bring_all_courses() {
@@ -16,7 +19,7 @@ class School_Page {
 
 		$body= '';
 		foreach($courses_list as $course) {
-			$course['image'] = conf('url.courses') . $course['image'];
+			$course['image'] = conf('url.courses') . $course['image']; // דורס את הערך שמגיע מה DB ומחליף אותו עם מיקוד מדיוק לכתובת של התמונה. כנל לגבי טעינת הסטודנטים
 			$body .= Template::get_partial('inside' ,$course);
 		}
 		return $body;

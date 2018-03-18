@@ -3,9 +3,8 @@ class Add_Student_Command {
 	public static $allowed_roles = array('owner', 'manager','sales');
 
 	public function __construct() {
-//		log::w(Request::all());
-
-		Validation::valid(Request::all());
+		//Log::w(Request::all());
+		Validation::validate(Request::all());
 		$this->_do_upload();
 		$this->_on_upload_success();
 		$this->_set_page_response();
@@ -40,7 +39,7 @@ class Add_Student_Command {
 	}
 
 	private function _set_page_response() {
-		new Page_Controller(true, array(
+		Template::set(array(
 			'message' => '<div class="success_message">הסטודנט נרשם בהצלחה</div>'
 		));
 	}
