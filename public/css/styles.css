@@ -387,3 +387,9 @@ a.show {
 .jumbotron button {
 	margin: 19px auto;
 }
+#hook_delete {
+	margin: 20px auto;
+}
+.submit {
+	margin: 13px auto;
+}

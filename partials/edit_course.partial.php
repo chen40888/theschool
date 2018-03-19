@@ -1,5 +1,7 @@
-<h2>עדכון קורס</h2>
 <form method="post" action="/edit_course/<?php echo $id?>" enctype="multipart/form-data">
+	<label>
+		<input value="submit" name="edit_course" type="submit" class="btn btn-primary submit">
+	</label>
 	<input hidden name="id" value="<?php echo $id?>">
 	<div class="form-group">
 		<label>שם :</label>
@@ -17,7 +19,4 @@
 		<label>העלת תמונה :</label>
 		<input class="file" type="file" name="file">
 	</div>
-	<label>
-		<input value="submit" name="edit_course" type="submit" class="btn btn-primary">
-	</label>
 </form>

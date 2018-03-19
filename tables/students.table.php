@@ -1,6 +1,7 @@
 <?php
 class Students_Table {
 	public static function insert_student($name, $phone, $id_card, $email, $image_name) {
+		$name = str_replace("'", "\'", $name);
 		$query = "INSERT INTO students SET name = '$name', phone = '$phone' ,id_card = '$id_card', email = '$email',image = '$image_name'";
 		DB::execute('INSERT', $query);
 	}
@@ -21,12 +22,14 @@ class Students_Table {
 	}
 
 	public static function update_student_same_image($name, $phone, $id_card, $email, $id) {
+		$name = str_replace("'", "\'", $name);
 		$query = "UPDATE students SET name = '$name', phone = '$phone', id_card = '$id_card', email = '$email'
  		WHERE id = $id";
 		DB::execute('UPDATE', $query);
 	}
 
 	public static function update_student($name, $phone, $id_card, $email, $id, $file_name) {
+		$name = str_replace("'", "\'", $name);
 		$query = "UPDATE students SET name = '$name', phone = '$phone', id_card = '$id_card', email = '$email', image = '$file_name'
  		WHERE id = $id";
 		DB::execute('UPDATE', $query);

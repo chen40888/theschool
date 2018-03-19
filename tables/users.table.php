@@ -22,6 +22,8 @@ class Users_Table {
 	}
 
 	public static function insert_user($name, $phone, $id_card, $password, $email, $role, $file) {
+		$password = str_replace("'", "\'", $password);
+		$name = str_replace("'", "\'", $name);
 		$query = "INSERT INTO users SET name = '$name', phone = '$phone' ,id_card = '$id_card', email = '$email',image = '$file',
  					password = '$password', role = '$role' ";
 		DB::execute('INSERT', $query);
@@ -33,6 +35,8 @@ class Users_Table {
 	}
 
 	public static function update_user($name, $phone, $id_card, $password, $email, $role, $file, $id) {
+		$password = str_replace("'", "\'", $password);
+		$name = str_replace("'", "\'", $name);
 		$query = "UPDATE users SET  name = '$name', phone = '$phone', id_card = '$id_card', email = '$email',
  		image = '$file', password = '$password', role = '$role'
  		WHERE id = $id";
@@ -40,6 +44,8 @@ class Users_Table {
 	}
 
 	public static function update_user_same_image($name, $phone, $id_card, $password, $email, $role, $id) {
+		$password = str_replace("'", "\'", $password);
+		$name = str_replace("'", "\'", $name);
 		$query = "UPDATE users SET  name = '$name', phone = '$phone', id_card = '$id_card', email = '$email',
  		password = '$password', role = '$role'
  		WHERE id = $id";

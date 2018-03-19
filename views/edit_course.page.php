@@ -1,6 +1,5 @@
+<h2>עדכון קורס</h2>
 <?php echo $message; ?>
-
-<?php echo $content; ?>
 <button class="btn btn-warrning" id="hook_delete">Delete Course</button>
 <div id="show_btn" class="hidden">
 	<h4>are you sure you want to delete this course?</h4>
@@ -11,6 +10,8 @@
 		<button class="btn btn-warrning">No</button>
 	</a>
 </div>
+<?php echo $content; ?>
+
 
 
 
