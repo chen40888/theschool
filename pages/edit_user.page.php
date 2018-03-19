@@ -16,15 +16,15 @@ class Edit_User_Page {
 		$user['image'] = conf('url.users') . $user['image'];
 
 //		Log::w('$role: ' . User::$role);
-		$user['hide_class'] = (User::$id == $user['id'] ? 'hide' : '');
-		$user['hide_owner_class'] = (User::$role != 'owner' ? ' class="hide"' : '');
+		$user['hide_class'] = (User::$id == $user['id'] ? 'hide' : ''); //בודק האם המשתמש מנסה לשנות את עצמו
+		$user['hide_owner_class'] = (User::$role != 'owner' ? ' class="hide"' : ''); // בודק האם הוא מנהל או בעלים, במידה והוא מנהל הוא לא רואה את הבעלים
 
-		$user['selected_manager'] = ($user['role'] == 'manager' ? $selected : '');
+		$user['selected_manager'] = ($user['role'] == 'manager' ? $selected : ''); // כל החלק הזה נועד לעשות שבעדכון משתמש אם נכנסת למנהל אז בselect option יהיה רשום לך את הסוג של אותו אדם.
 		$user['selected_owner'] = ($user['role'] == 'owner' ? $selected : '');
 		$user['selected_sales'] = ($user['role'] == 'sales' ? $selected : '');
 
 
-		$update_form = Template::get_partial('edit_user', $user);
-		Template::set('content', $update_form);
+		$update_form = Template::get_partial('edit_user', $user);// שולח את המשתנים לחלק הזה
+		Template::set('content', $update_form);//שולח לview את התוכן
 	}
 }
