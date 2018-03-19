@@ -38,7 +38,7 @@ class Edit_Student_Command {
 		$file_name = Files::get('name');
 
 		if($is_no_image) Students_Table::update_student_same_image($name, $phone, $id_card, $email, $student_id);
-		else Students_Table::update_student($name, $phone, $id_card, $email, $student_id, $file_name);
+		else Students_Table::update_student($name, $phone, $id_card, $email, $file_name, $student_id);
 	}
 
 	private function _update_student_courses($student_id, $courses_array) {

@@ -1,9 +1,10 @@
 <?php
+
 class Students_Table {
 	public static function insert_student($name, $phone, $id_card, $email, $image_name) {
-		$name = str_replace("'", "\'", $name);
-		$query = "INSERT INTO students SET name = '$name', phone = '$phone' ,id_card = '$id_card', email = '$email',image = '$image_name'";
-		DB::execute('INSERT', $query);
+		$sql = "INSERT INTO students SET name = ?, phone = ? ,id_card = ? , email = ? ,image = ?";
+
+		DB::execute('INSERT', $sql, array($name, $phone, $id_card, $email, $image_name));
 	}
 
 	public static function get_all() {
@@ -21,18 +22,16 @@ class Students_Table {
 		return DB::fetch_row($query);
 	}
 
-	public static function update_student_same_image($name, $phone, $id_card, $email, $id) {
-		$name = str_replace("'", "\'", $name);
-		$query = "UPDATE students SET name = '$name', phone = '$phone', id_card = '$id_card', email = '$email'
- 		WHERE id = $id";
-		DB::execute('UPDATE', $query);
+	public static function update_student($name, $phone, $id_card, $email, $file_name, $id) {
+		$sql = "UPDATE students SET name = ? , phone = ?, id_card = ? , email = ? , image = ? WHERE id = ?";
+
+		DB::execute('UPDATE', $sql, array($name, $phone, $id_card, $email, $file_name, $id));
 	}
 
-	public static function update_student($name, $phone, $id_card, $email, $id, $file_name) {
-		$name = str_replace("'", "\'", $name);
-		$query = "UPDATE students SET name = '$name', phone = '$phone', id_card = '$id_card', email = '$email', image = '$file_name'
- 		WHERE id = $id";
-		DB::execute('UPDATE', $query);
+	public static function update_student_same_image($name, $phone, $id_card, $email, $id) {
+		$sql = "UPDATE students SET name = ? , phone = ?, id_card = ? , email = ? WHERE id = ?";
+
+		DB::execute('UPDATE', $sql, array($name, $phone, $id_card, $email, $id));
 	}
 
 	public static function delete_from_students_and_student_courses($id) {
