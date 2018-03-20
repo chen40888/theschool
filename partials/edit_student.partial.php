@@ -1,7 +1,7 @@
 	<input hidden name="id" value="<?php echo $id?>">
 	<div id="add_student" class="form-group">
 		<label>ת"ז:</label>
-		<input type="number" name="id_card" min="2" class="form-control" value="<?php echo $id_card;?>" required placeholder="תעודת זהות">
+		<input type="number" name="id_card" maxlength="10" class="form-control" value="<?php echo $id_card;?>" required placeholder="תעודת זהות">
 	</div>
 	<div class="form-group">
 		<label>שם :</label>
@@ -9,7 +9,7 @@
 	</div>
 	<div class="form-group">
 		<label for="phone">טלפון :</label>
-		<input id="phone" type="number" name="phone" class="form-control" value="<?php echo $phone;?>" required>
+		<input id="phone" type="number" maxlength="10" name="phone" class="form-control" value="<?php echo $phone;?>" required>
 	</div>
 	<div class="form-group">
 		<label>Email address</label>

@@ -1,6 +1,6 @@
 <h2>הוספת משתמש חדש</h2>
 <?php echo $message; ?>
-<form action="/add_student" method="post" enctype="multipart/form-data">
+<form id="valid_form" action="/add_student" method="post" enctype="multipart/form-data">
 	<div class="col-xs-6">
 		<div class="form-group">
 			<div>
@@ -11,9 +11,9 @@
 		</div>
 	</div>
 	<div class="col-xs-6">
-		<div id="add_student" class="form-group">
+		<div class="form-group">
 			<label>ת"ז:</label>
-			<input type="number" name="id_card" min="2" class="form-control" required placeholder="תעודת זהות">
+			<input type="number" name="id_card" maxlength="10" class="form-control" required placeholder="תעודת זהות">
 		</div>
 		<div class="form-group">
 			<label>שם :</label>
@@ -21,7 +21,7 @@
 		</div>
 		<div class="form-group">
 			<label for="phone">טלפון :</label>
-			<input id="phone" type="number" name="phone" class="form-control" required placeholder="phone">
+			<input id="phone" type="number" name="phone" maxlength="10" class="form-control" required placeholder="phone">
 		</div>
 		<div class="form-group">
 			<label>Email address</label>

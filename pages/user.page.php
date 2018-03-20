@@ -6,6 +6,8 @@ class User_Page {
 	public function __construct() {
 	$id = Request::get('arg1');
 	$user = Users_Table::bring_user_to_update($id);
-	Template::set('user',Template::get_partial('one_user',$user));
+	$user['name'] = ucwords($user['name']);
+
+		Template::set('user',Template::get_partial('one_user',$user));
 	}
 }

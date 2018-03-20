@@ -1,5 +1,5 @@
 <h2>הוספת קורס חדש</h2>
-<form method="post" action="/add_course/" enctype="multipart/form-data">
+<form id="valid_form" method="post" action="/add_course/" enctype="multipart/form-data">
 	<div class="form-group">
 		<label>שם הקורס :</label>
 		<input type="text" class="form-control" required name="course_name">

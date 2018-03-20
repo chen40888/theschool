@@ -10,14 +10,14 @@
 		</a>
 	</div>
 </div>
-<form action="/edit_user/<?php echo $id; ?>" method="post" enctype="multipart/form-data">
+<form id="valid_form" action="/edit_user/<?php echo $id; ?>" method="post" enctype="multipart/form-data">
 	<label>
 		<input value="submit" name="edit_user" type="submit" class="btn btn-primary submit">
 	</label>
 	<input name="id" hidden value="<?php echo $id; ?>">
 	<div id="add_student" class="form-group">
 		<label>ת"ז:</label>
-		<input type="number" name="id_card" min="2" class="form-control" value="<?php echo $id_card;?>" required>
+		<input type="number" name="id_card" maxlength="10" required class="form-control" value="<?php echo $id_card;?>">
 	</div>
 	<div class="form-group">
 		<label>שם :</label>
@@ -25,7 +25,7 @@
 	</div>
 	<div class="form-group">
 		<label for="phone">טלפון :</label>
-		<input id="phone" type="number" name="phone" value="<?php echo $phone;?>" class="form-control" required>
+		<input id="phone" type="number" name="phone" maxlength="10" value="<?php echo $phone;?>" class="form-control" required>
 	</div>
 	<div class="form-group">
 		<label>Email address</label>

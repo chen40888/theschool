@@ -9,7 +9,7 @@
 		<button class="btn btn-warrning">No</button>
 	</a>
 </div>
-<form action="/edit_student/<?php echo $student_id; ?>" method="post" enctype="multipart/form-data">
+<form id="valid_form" action="/edit_student/<?php echo $student_id; ?>" method="post" enctype="multipart/form-data">
 	<div class="form-group">
 		<label>
 			<input value="submit" name="edit_student" type="submit" class="btn btn-primary submit">

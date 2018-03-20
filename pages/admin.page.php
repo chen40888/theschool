@@ -18,6 +18,8 @@ class Admin_Page {
 		$body = '';
 		foreach($users_array as $user) {
 			$user['image'] = conf('url.users') . $user['image'];
+			$user['name'] = ucwords($user['name']);
+			$user['role'] = ucwords($user['role']);
 			$body .= Template::get_partial('user', $user);
 		}
 

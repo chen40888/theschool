@@ -20,6 +20,7 @@ class School_Page {
 		$body= '';
 		foreach($courses_list as $course) {
 			$course['image'] = conf('url.courses') . $course['image']; // דורס את הערך שמגיע מה DB ומחליף אותו עם מיקוד מדיוק לכתובת של התמונה. כנל לגבי טעינת הסטודנטים
+			$course['name'] = ucwords($course['name']);
 			$body .= Template::get_partial('inside' ,$course);
 		}
 		return $body;
@@ -31,6 +32,8 @@ class School_Page {
 		$body= '';
 		foreach($students_list as $student) {
 			$student['image'] = conf('url.students') . $student['image'];
+			$student['name'] = ucwords($student['name']);
+
 			$body .= Template::get_partial('students' ,$student);
 		}
 		return $body;

@@ -1,4 +1,4 @@
-<form method="post" action="/edit_course/<?php echo $id?>" enctype="multipart/form-data">
+<form id="valid_form" method="post" action="/edit_course/<?php echo $id?>" enctype="multipart/form-data">
 	<label>
 		<input value="submit" name="edit_course" type="submit" class="btn btn-primary submit">
 	</label>

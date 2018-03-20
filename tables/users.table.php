@@ -1,5 +1,4 @@
 <?php
-
 class Users_Table {
 	public static function select_login_details($user_card_or_mail, $password) {
 		$sql = "SELECT u.id, u.id_card, u.role, u.email 
@@ -11,7 +10,7 @@ class Users_Table {
 	}
 
 	public static function get_user_params_by_token($token) {
-		if(!$token) return FALSE;
+		if(!$token) return false;
 
 		$sql = "SELECT u.*, t.date_created 
 		FROM users AS u 
@@ -48,7 +47,6 @@ class Users_Table {
 
 		DB::execute('UPDATE', $sql, array($name, $phone, $id_card, $email, $password, $role, $id));
 	}
-	
 	public static function get_all_users() {
 		$query = "SELECT * FROM users";
 		return DB::fetch_all($query);
@@ -58,7 +56,6 @@ class Users_Table {
 		$query = "SELECT * FROM users WHERE role = 'manager' OR role = 'sales'";
 		return DB::fetch_all($query);
 	}
-
 	public static function delete_user($id) {
 		$query = "DELETE FROM users WHERE id = {$id} LIMIT 1";
 		DB::execute('DELETE', $query);
