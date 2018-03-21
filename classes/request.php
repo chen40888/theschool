@@ -32,7 +32,7 @@ class Request {
 	}
 
 	private function _set_command_name() {
-		$command_name = Request::get('arg0', 'home');
+		$command_name = Request::get('arg0', 'login');
 		if(!empty($command_name)) $this->_set_full_formatted_command_name($command_name);
 		//Log::w('$command_name: ' . self::$command_name);
 	}
