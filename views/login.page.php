@@ -1,7 +1,7 @@
 <div class="login_wrap">
 
 	<div class="app-title">
-		<h1>ג'ון ברייס קורסים - בטיפול</h1>
+		<h1>ג'ון ברייס קורסים</h1>
 	</div>
 
 	<div class="login">
